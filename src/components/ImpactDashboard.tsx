@@ -59,10 +59,11 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                 <YAxis tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 10 }} axisLine={{ stroke: 'rgba(255,255,255,0.1)' }} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'rgba(10,10,10,0.95)', 
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: '#000', 
+                    border: '1px solid #333',
                     borderRadius: '8px',
-                    color: 'white'
+                    color: '#fff',
+                    zIndex: 100
                   }} 
                 />
                 <Line 
@@ -91,10 +92,11 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                 <YAxis dataKey="name" type="category" tick={{ fill: 'rgba(255,255,255,0.4)', fontSize: 10 }} axisLine={{ stroke: 'rgba(255,255,255,0.1)' }} width={80} />
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'rgba(10,10,10,0.95)', 
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: '#000', 
+                    border: '1px solid #333',
                     borderRadius: '8px',
-                    color: 'white'
+                    color: '#fff',
+                    zIndex: 100
                   }} 
                 />
                 <Bar dataKey="speed" fill="hsl(var(--skill))" radius={[0, 4, 4, 0]} />
@@ -126,10 +128,11 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                 </Pie>
                 <Tooltip 
                   contentStyle={{ 
-                    backgroundColor: 'rgba(10,10,10,0.95)', 
-                    border: '1px solid rgba(255,255,255,0.1)',
+                    backgroundColor: '#000', 
+                    border: '1px solid #333',
                     borderRadius: '8px',
-                    color: 'white'
+                    color: '#fff',
+                    zIndex: 100
                   }} 
                 />
               </PieChart>

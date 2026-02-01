@@ -13,6 +13,7 @@ interface Job {
   location: string;
   type: string;
   date: string;
+  image: string;
   summary: string;
   role: string[];
   idealCandidate: string[];
@@ -27,6 +28,7 @@ const jobs: Job[] = [
     location: "Remote",
     type: "Full Time",
     date: "Feb 2026",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=500&q=80",
     summary: "Join Team Skile. We believe support is more than just answering questions—it's about creating unforgettable experiences that turn users into advocates.",
     role: [
       "Be the primary point of contact for all student inquiries",
@@ -48,11 +50,12 @@ const jobs: Job[] = [
   },
   {
     id: "video-editor",
-    title: "Video Editor",
+    title: "Short-Form Editor",
     team: "Content",
     location: "Remote",
     type: "Full Time",
     date: "Feb 2026",
+    image: "https://images.unsplash.com/photo-1574717024653-61fd2cf4d44c?w=500&q=80",
     summary: "We're looking for a video editing wizard who can transform raw footage into viral, educational content that keeps millions engaged.",
     role: [
       "Edit long-form educational videos for our courses",
@@ -73,12 +76,13 @@ const jobs: Job[] = [
     ],
   },
   {
-    id: "growth-marketer",
-    title: "Growth Marketer",
+    id: "creative-designer",
+    title: "Creative Designer",
     team: "Marketing",
     location: "Remote",
     type: "Full Time",
     date: "Feb 2026",
+    image: "https://images.unsplash.com/photo-1626785774573-4b799312c95d?w=500&q=80",
     summary: "We need a data-driven growth hacker who can scale our reach from thousands to millions using paid and organic strategies.",
     role: [
       "Plan and execute paid ad campaigns (Meta, TikTok, Google)",
@@ -105,6 +109,7 @@ const jobs: Job[] = [
     location: "Remote",
     type: "Contract",
     date: "Feb 2026",
+    image: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&q=80",
     summary: "Build the future of education. We need engineers who can ship fast, iterate faster, and care deeply about user experience.",
     role: [
       "Develop and maintain our web platform",
@@ -214,25 +219,34 @@ const Career = () => {
                   <button
                     key={job.id}
                     onClick={() => setSelectedJob(job)}
-                    className="glass rounded-xl p-6 text-left hover:bg-white/10 transition-all group card-glow"
+                    className="relative overflow-hidden rounded-xl h-48 text-left group"
                   >
-                    <div className="flex items-start justify-between">
-                      <div>
-                        <h3 className="text-xl font-bold text-foreground mb-2">{job.title}</h3>
-                        <div className="flex flex-wrap items-center gap-3 text-foreground/50 text-sm">
-                          <span className="flex items-center gap-1">
-                            <MapPin className="w-4 h-4" />
-                            {job.location}
-                          </span>
-                          <span className="flex items-center gap-1">
-                            <Clock className="w-4 h-4" />
-                            {job.type}
-                          </span>
-                          <span className="text-accent">{job.team}</span>
-                        </div>
-                      </div>
-                      <ChevronRight className="w-5 h-5 text-foreground/30 group-hover:text-foreground group-hover:translate-x-1 transition-all" />
+                    {/* Background Image */}
+                    <div className="absolute inset-0">
+                      <img
+                        src={job.image}
+                        alt={job.title}
+                        className="w-full h-full object-cover transition-all duration-500 group-hover:scale-110 group-hover:brightness-75 brightness-[0.3]"
+                      />
                     </div>
+                    
+                    {/* Content Overlay */}
+                    <div className="absolute inset-0 flex flex-col items-center justify-center p-6 text-center">
+                      <h3 className="text-2xl font-bold text-white mb-2">{job.title}</h3>
+                      <div className="flex items-center gap-3 text-white/70 text-sm">
+                        <span className="flex items-center gap-1">
+                          <MapPin className="w-4 h-4" />
+                          {job.location}
+                        </span>
+                        <span className="flex items-center gap-1">
+                          <Clock className="w-4 h-4" />
+                          {job.type}
+                        </span>
+                      </div>
+                    </div>
+
+                    {/* Hover Border */}
+                    <div className="absolute inset-0 rounded-xl border-2 border-transparent group-hover:border-accent/50 transition-colors pointer-events-none" />
                   </button>
                 ))}
               </div>

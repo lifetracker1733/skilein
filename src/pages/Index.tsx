@@ -1,4 +1,5 @@
 import { useState, useMemo } from "react";
+import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
@@ -46,11 +47,13 @@ const Index = () => {
               Real skills. Real income. Free for everyone.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
-              <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 font-semibold text-base group">
-                Start Learning
-                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
-              </Button>
-              <Button size="lg" variant="outline" className="glass border-white/10 text-foreground hover:bg-white/10 rounded-full px-8 py-6 font-semibold text-base">
+              <Link to={`/course/${mockCourses[0]?.id || 'dropshipping'}`}>
+                <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 font-semibold text-base group">
+                  Start Learning
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+              <Button size="lg" variant="outline" className="glass border-white/10 text-foreground hover:bg-white/10 rounded-full px-8 py-6 font-semibold text-base" onClick={() => document.getElementById('courses')?.scrollIntoView({ behavior: 'smooth' })}>
                 View Courses
               </Button>
             </div>
@@ -78,8 +81,52 @@ const Index = () => {
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-accent/10 rounded-full blur-[150px] pointer-events-none" />
       </section>
 
+      {/* Our Mission Section - Split Layout */}
+      <section className="py-24 px-6 relative overflow-hidden">
+        <div className="max-w-7xl mx-auto">
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            {/* Text Content */}
+            <div className="space-y-6">
+              <p className="text-accent font-semibold text-sm uppercase tracking-widest">
+                Our Mission
+              </p>
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tighter leading-tight">
+                Break the System.<br />Build Your Legacy.
+              </h2>
+              <p className="text-foreground/50 text-lg leading-relaxed">
+                Education is broken. Universities teach nothing about wealth. Paid courses sell empty promises behind $1,000 paywalls.
+              </p>
+              <p className="text-foreground font-medium text-lg leading-relaxed">
+                Skile.in delivers elite skills—Stocks, Dropshipping, AI—100% free. No fluff. No hidden fees. Every lesson is verified. 2026-ready.
+              </p>
+              <Link to="/mission">
+                <Button variant="outline" className="glass border-white/10 text-foreground hover:bg-white/10 rounded-full px-6 py-5 font-semibold mt-4 group">
+                  Learn More
+                  <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
+                </Button>
+              </Link>
+            </div>
+
+            {/* Image */}
+            <div className="relative">
+              <div className="absolute inset-0 bg-gradient-to-r from-background via-transparent to-transparent z-10 lg:hidden" />
+              <div className="relative overflow-hidden rounded-2xl">
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent z-10" />
+                <img
+                  src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=800&q=80"
+                  alt="Modern dark office"
+                  className="w-full h-[400px] lg:h-[500px] object-cover img-gritty"
+                />
+              </div>
+              {/* Floating accent */}
+              <div className="absolute -bottom-4 -left-4 w-24 h-24 bg-accent/20 rounded-full blur-2xl" />
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Course Grid - Bento Layout */}
-      <section className="py-24 px-6">
+      <section id="courses" className="py-24 px-6">
         <div className="max-w-7xl mx-auto">
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
@@ -144,10 +191,12 @@ const Index = () => {
           <p className="text-foreground/50 font-medium mb-8 text-lg">
             Join thousands of students building their income streams.
           </p>
-          <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 py-6 font-semibold text-base">
-            Get Started Free
-            <ArrowRight className="ml-2 h-4 w-4" />
-          </Button>
+          <Link to={`/course/${mockCourses[0]?.id || 'dropshipping'}`}>
+            <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-10 py-6 font-semibold text-base">
+              Get Started Free
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </Button>
+          </Link>
         </div>
       </section>
 

@@ -56,13 +56,17 @@ export interface Course {
   created_at: string;
 }
 
+// Helper function to generate YouTube thumbnail URL
+export const getYouTubeThumbnail = (videoID: string) => 
+  `https://img.youtube.com/vi/${videoID}/maxresdefault.jpg`;
+
 export const mockCourses: Course[] = [
   {
     id: "dropshipping",
-    title: "Dropshipping: The Winning Store (2025)",
+    title: "Dropshipping: The Winning Store",
     category: "Skill",
     description: "Complete A-Z guide: Finding products, Shopify setup, and viral marketing.",
-    thumbnail_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("KC4cdxyiTIQ"),
     instructor: "Santrel Media",
     price: null,
     outcomes: [
@@ -163,10 +167,10 @@ export const mockCourses: Course[] = [
   },
   {
     id: "vibecoding",
-    title: "Vibe Coding: Cursor AI Masterclass",
+    title: "Vibe Coding: Cursor AI",
     category: "Skill",
     description: "How to build software without knowing how to code using AI tools.",
-    thumbnail_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("yk9nX8i3i8Q"),
     instructor: "Cursor Team",
     price: null,
     outcomes: [
@@ -251,11 +255,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "stock",
-    title: "Stock Market Mastery 2025",
+    title: "Stock Market Mastery",
     category: "Finance",
     description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
-    thumbnail_url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
-    instructor: "Market Wizards",
+    thumbnail_url: getYouTubeThumbnail("bb6_M_srMBk"),
+    instructor: "Humphrey Yang",
     price: null,
     outcomes: [
       "Read and interpret stock charts like a pro",
@@ -340,7 +344,7 @@ export const mockCourses: Course[] = [
     title: "Crypto Trading Blueprint",
     category: "Crypto",
     description: "Technical analysis and risk management for the 2025 bull run.",
-    thumbnail_url: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("aaMFEk5Zuq4"),
     instructor: "Craig Percoco",
     price: null,
     outcomes: [
@@ -409,10 +413,10 @@ export const mockCourses: Course[] = [
   },
   {
     id: "prompt",
-    title: "Prompt Engineering Pro",
+    title: "Prompt Engineering",
     category: "Skill",
     description: "Master LLMs, RAG, and Context Engineering. The highest paying skill of 2026.",
-    thumbnail_url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("BUdwDOLQVWc"),
     instructor: "Simplilearn",
     price: null,
     outcomes: [
@@ -481,11 +485,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "admanagement",
-    title: "Meta & TikTok Ads Manager",
+    title: "Meta & TikTok Ads",
     category: "Skill",
     description: "The only Facebook Ads tutorial you need for 2025 ROI.",
-    thumbnail_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    instructor: "Santrel Media",
+    thumbnail_url: getYouTubeThumbnail("mZWJCjhZanQ"),
+    instructor: "Neil Patel",
     price: null,
     outcomes: [
       "Set up and optimize Facebook Ads campaigns",
@@ -555,7 +559,7 @@ export const mockCourses: Course[] = [
     title: "AI Content & Virality",
     category: "Skill",
     description: "9 AI Skills that will make you rich in 2025 (Content Focus).",
-    thumbnail_url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("VwedJBqdUIs"),
     instructor: "Viral Lab",
     price: null,
     outcomes: [
@@ -640,7 +644,7 @@ export const mockCourses: Course[] = [
     title: "Drop Servicing: International Guide",
     category: "Skill",
     description: "How to start International Drop Servicing in 2025.",
-    thumbnail_url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
+    thumbnail_url: getYouTubeThumbnail("qqzB4d1VLPQ"),
     instructor: "Alok Badatia",
     price: null,
     outcomes: [
