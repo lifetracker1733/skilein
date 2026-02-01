@@ -1,5 +1,6 @@
+import { useState } from "react";
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Clock, BarChart, CheckCircle, PlayCircle, ChevronRight } from "lucide-react";
+import { ArrowLeft, Clock, BarChart, CheckCircle } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -8,7 +9,9 @@ import CourseCard from "@/components/CourseCard";
 import ImpactDashboard from "@/components/ImpactDashboard";
 import HallOfFame from "@/components/HallOfFame";
 import YouTubePlayer from "@/components/YouTubePlayer";
-import { getCourseById, getRelatedCourses, type Category } from "@/data/mockCourses";
+import PhaseSelector from "@/components/PhaseSelector";
+import TopEarnerModal from "@/components/TopEarnerModal";
+import { getCourseById, getRelatedCourses, type Category, type HallOfFameEntry } from "@/data/mockCourses";
 
 const tagColors: Record<Category, string> = {
   Finance: "bg-tag-finance/20 text-tag-finance border-tag-finance/30",
@@ -21,6 +24,13 @@ const CourseDetail = () => {
   const { id } = useParams<{ id: string }>();
   const course = getCourseById(id || "");
   const relatedCourses = getRelatedCourses(id || "", 3);
+  
+  // Phase selection state
+  const [activePhaseIndex, setActivePhaseIndex] = useState(0);
+  
+  // Top Earner modal state
+  const [selectedEarner, setSelectedEarner] = useState<HallOfFameEntry | null>(null);
+  const [isEarnerModalOpen, setIsEarnerModalOpen] = useState(false);
 
   if (!course) {
     return (
@@ -43,7 +53,19 @@ const CourseDetail = () => {
     );
   }
 
-  const currentLesson = course.lessons[0];
+  // Get current phase data
+  const currentPhase = course.curriculum[activePhaseIndex];
+  
+  const handlePhaseSelect = (index: number) => {
+    setActivePhaseIndex(index);
+    // Scroll to video player smoothly
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+  
+  const handleEarnerClick = (earner: HallOfFameEntry) => {
+    setSelectedEarner(earner);
+    setIsEarnerModalOpen(true);
+  };
 
   return (
     <div className="min-h-screen">
@@ -60,9 +82,9 @@ const CourseDetail = () => {
         </Link>
       </div>
 
-      {/* Course Header - Large Title Above Video */}
+      {/* Course Header */}
       <section className="py-8">
-        <div className="max-w-4xl mx-auto px-6">
+        <div className="max-w-7xl mx-auto px-6">
           {/* Category & Meta */}
           <div className="flex items-center gap-3 mb-4">
             <span className={`px-3 py-1 rounded-full text-xs font-semibold border ${tagColors[course.category]}`}>
@@ -94,69 +116,65 @@ const CourseDetail = () => {
             <span className="text-sm text-foreground/50 font-medium">
               by <strong className="text-foreground">{course.instructor}</strong>
             </span>
+            <span className="text-sm text-foreground/40">
+              {course.curriculum.length} phases
+            </span>
           </div>
         </div>
       </section>
 
-      {/* Video Player Section - Strict Mode with YouTube Lock */}
-      {currentLesson && (
+      {/* Main Content: Video + Phase Selector */}
+      {currentPhase && (
         <section className="pb-8">
-          <div className="max-w-4xl mx-auto px-6">
-            {/* Video Player with YouTube Lock */}
-            <div className="mb-10">
-              <YouTubePlayer 
-                videoId={currentLesson.video_id} 
-                title={currentLesson.title} 
-              />
-            </div>
+          <div className="max-w-7xl mx-auto px-6">
+            <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+              {/* Video Player Column */}
+              <div className="lg:col-span-2 space-y-8">
+                {/* Video Player */}
+                <YouTubePlayer 
+                  videoId={currentPhase.videoID} 
+                  title={currentPhase.phaseTitle} 
+                />
 
-            {/* Lesson Info */}
-            <div className="mb-10">
-              <div className="flex items-center gap-3 mb-3">
-                <h3 className="text-2xl font-bold text-foreground tracking-tight">{currentLesson.title}</h3>
-                <span className="px-3 py-1 rounded-full text-xs font-medium glass text-foreground/60">
-                  {currentLesson.duration}
-                </span>
-              </div>
-              <p className="text-foreground/50 font-medium">{currentLesson.description}</p>
-            </div>
-
-            {/* The Skile Box - Command Center */}
-            <SkileBox 
-              prompt={currentLesson.ai_prompt}
-              appLinks={currentLesson.app_links}
-            />
-          </div>
-        </section>
-      )}
-
-      {/* Curriculum Section (if available) */}
-      {course.curriculum && course.curriculum.length > 0 && (
-        <section className="py-12 border-t border-border">
-          <div className="max-w-4xl mx-auto px-6">
-            <h2 className="text-2xl font-bold text-foreground mb-8 tracking-tight">Course Curriculum</h2>
-            <div className="space-y-4">
-              {course.curriculum.map((phase, index) => (
-                <div key={index} className="glass rounded-2xl overflow-hidden">
-                  <div className="p-5 border-b border-border">
-                    <div className="flex items-center gap-3">
-                      <span className="px-3 py-1 rounded-full text-xs font-bold bg-accent/20 text-accent">
-                        {phase.phase}
-                      </span>
-                      <h3 className="font-bold text-foreground">{phase.title}</h3>
-                    </div>
+                {/* Current Phase Info */}
+                <div className="glass rounded-2xl p-6 border border-border">
+                  <div className="flex items-center gap-3 mb-3">
+                    <span className="px-3 py-1 rounded-full text-xs font-bold bg-primary/20 text-primary">
+                      Now Playing
+                    </span>
                   </div>
-                  <div className="divide-y divide-border">
-                    {phase.topics.map((topic, topicIndex) => (
-                      <div key={topicIndex} className="px-5 py-3 flex items-center gap-3 hover:bg-white/5 transition-colors">
-                        <PlayCircle className="h-4 w-4 text-foreground/40 shrink-0" />
-                        <span className="text-foreground/70 text-sm font-medium">{topic}</span>
-                        <ChevronRight className="h-4 w-4 text-foreground/30 ml-auto" />
+                  <h3 className="text-2xl font-bold text-foreground tracking-tight mb-3">
+                    {currentPhase.phaseTitle}
+                  </h3>
+                  
+                  {/* Topics List */}
+                  <div className="space-y-2 mt-4">
+                    {currentPhase.topics.map((topic, index) => (
+                      <div key={index} className="flex items-center gap-2 text-foreground/60">
+                        <CheckCircle className="h-4 w-4 text-tag-skill shrink-0" />
+                        <span className="text-sm font-medium">{topic}</span>
                       </div>
                     ))}
                   </div>
                 </div>
-              ))}
+
+                {/* The Skile Box */}
+                <SkileBox 
+                  prompt={currentPhase.ai_prompt || ""}
+                  appLinks={currentPhase.app_links || []}
+                />
+              </div>
+              
+              {/* Phase Selector Sidebar */}
+              <div className="lg:col-span-1">
+                <div className="sticky top-24">
+                  <PhaseSelector
+                    phases={course.curriculum}
+                    activePhaseIndex={activePhaseIndex}
+                    onPhaseSelect={handlePhaseSelect}
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -177,17 +195,20 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* Impact Dashboard - Stats Grid with course-specific data */}
+      {/* Impact Dashboard */}
       <section className="border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
           <ImpactDashboard stats={course.stats} />
         </div>
       </section>
 
-      {/* Hall of Fame - Leaderboard with course-specific data */}
+      {/* Hall of Fame - Clickable */}
       <section>
         <div className="max-w-4xl mx-auto px-6">
-          <HallOfFame entries={course.hall_of_fame} />
+          <HallOfFame 
+            entries={course.hall_of_fame} 
+            onEarnerClick={handleEarnerClick}
+          />
         </div>
       </section>
 
@@ -204,6 +225,13 @@ const CourseDetail = () => {
       </section>
 
       <Footer />
+      
+      {/* Top Earner Modal */}
+      <TopEarnerModal
+        earner={selectedEarner}
+        isOpen={isEarnerModalOpen}
+        onClose={() => setIsEarnerModalOpen(false)}
+      />
     </div>
   );
 };
