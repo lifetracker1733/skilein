@@ -3,37 +3,41 @@ import { Button } from "@/components/ui/button";
 
 const Navbar = () => {
   return (
-    <nav className="sticky top-0 z-50 bg-background/60 backdrop-blur-xl border-b border-border">
-      <div className="container mx-auto px-4 md:px-6">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <Link to="/" className="flex items-center gap-2">
-            <span className="text-xl font-bold text-foreground tracking-tight">
-              Money<span className="text-accent">Skills</span>
-            </span>
+    <nav className="fixed top-0 left-0 right-0 z-50 px-6 py-4">
+      <div className="max-w-7xl mx-auto flex items-center justify-between">
+        {/* Logo - SKILE all caps, heavy bold */}
+        <Link to="/" className="flex items-center">
+          <span className="text-2xl font-black text-white tracking-tight">
+            SKILE
+          </span>
+        </Link>
+
+        {/* Navigation Pills - Glassmorphism */}
+        <div className="hidden md:flex items-center gap-1 glass rounded-full px-2 py-1.5">
+          <Link 
+            to="/" 
+            className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10"
+          >
+            Home
           </Link>
-
-          {/* Navigation Links */}
-          <div className="hidden md:flex items-center gap-8">
-            <Link to="/" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Courses
-            </Link>
-            <Link to="/?category=Freelancing" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Freelancing
-            </Link>
-            <Link to="/?category=Stock Trading" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Investing
-            </Link>
-            <Link to="/?category=Crypto" className="text-sm text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Crypto
-            </Link>
-          </div>
-
-          {/* CTA Button - Inverted Contrast */}
-          <Button className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-6 font-semibold text-sm">
-            Get Started
-          </Button>
+          <Link 
+            to="/mission" 
+            className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10"
+          >
+            Our Mission
+          </Link>
+          <Link 
+            to="/career" 
+            className="px-4 py-2 text-sm font-medium text-white/80 hover:text-white transition-colors rounded-full hover:bg-white/10"
+          >
+            Career
+          </Link>
         </div>
+
+        {/* CTA Button - Pure White Pill */}
+        <Button className="bg-white text-black hover:bg-white/90 rounded-full px-6 font-semibold text-sm">
+          Start Learning
+        </Button>
       </div>
     </nav>
   );

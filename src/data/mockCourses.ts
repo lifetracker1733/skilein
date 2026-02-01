@@ -1,4 +1,4 @@
-export type Category = "Freelancing" | "Stock Trading" | "Crypto" | "Bonds";
+export type Category = "Finance" | "Web3" | "Skill" | "Crypto";
 
 export interface AppLink {
   id: string;
@@ -37,34 +37,34 @@ export interface Course {
 export const mockCourses: Course[] = [
   {
     id: "1",
-    title: "Freelance Writing Mastery",
-    category: "Freelancing",
-    description: "Learn to write compelling content that clients pay premium rates for. Master the art of freelance writing and build a sustainable income stream.",
-    thumbnail_url: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=450&fit=crop",
-    instructor: "Sarah Mitchell",
-    price: null,
+    title: "Stock Market Mastery",
+    category: "Finance",
+    description: "Master the art of stock trading. Learn technical analysis, fundamental research, and build a portfolio that generates consistent returns.",
+    thumbnail_url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
+    instructor: "Michael Chen",
+    price: 199,
     outcomes: [
-      "Write articles worth $500+",
-      "Find high-paying clients on Upwork",
-      "Build a professional portfolio website",
-      "Master SEO writing techniques"
+      "Read and interpret stock charts like a pro",
+      "Analyze company fundamentals for long-term gains",
+      "Build a diversified portfolio",
+      "Master risk management strategies"
     ],
-    duration: "4 hours",
-    level: "Beginner",
+    duration: "8 hours",
+    level: "Intermediate",
     lessons: [
       {
         id: "1-1",
         course_id: "1",
-        title: "Finding Your Profitable Niche",
+        title: "Understanding Market Cycles",
         video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        description: "Discover how to identify writing niches that pay well and match your interests. We'll analyze market demand and competition to find your perfect fit.",
-        ai_prompt: "Act as a freelance writing niche research expert. Help me identify profitable writing niches based on my background in [YOUR FIELD]. Analyze the demand, competition, and earning potential for each niche you suggest. Provide specific examples of clients who pay well in each niche.",
-        duration: "25 min",
+        description: "Learn to identify bull and bear markets, understand economic indicators, and position your portfolio for different market conditions.",
+        ai_prompt: "Act as a senior stock market analyst. I want you to analyze the current market conditions based on these indicators: [PASTE YOUR DATA]. Provide actionable insights on sector allocation, risk levels, and specific stock recommendations with entry/exit points.",
+        duration: "45 min",
         order: 1,
         app_links: [
-          { id: "1", app_name: "Upwork", app_url: "https://www.upwork.com", icon_name: "Briefcase" },
-          { id: "2", app_name: "ChatGPT", app_url: "https://chat.openai.com", icon_name: "Bot" },
-          { id: "3", app_name: "Grammarly", app_url: "https://www.grammarly.com", icon_name: "Check" }
+          { id: "1", app_name: "TradingView", app_url: "https://www.tradingview.com", icon_name: "LineChart" },
+          { id: "2", app_name: "Yahoo Finance", app_url: "https://finance.yahoo.com", icon_name: "TrendingUp" },
+          { id: "3", app_name: "Seeking Alpha", app_url: "https://seekingalpha.com", icon_name: "FileText" }
         ]
       }
     ],
@@ -72,34 +72,34 @@ export const mockCourses: Course[] = [
   },
   {
     id: "2",
-    title: "Stock Market Fundamentals",
-    category: "Stock Trading",
-    description: "Master the basics of stock market investing. Learn to analyze companies, read charts, and build a diversified portfolio that grows over time.",
-    thumbnail_url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=450&fit=crop",
-    instructor: "Michael Chen",
-    price: 49,
+    title: "Crypto Trading",
+    category: "Web3",
+    description: "Navigate the volatile world of cryptocurrency. From wallet security to advanced trading strategies, become a confident crypto trader.",
+    thumbnail_url: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=600&fit=crop",
+    instructor: "Alex Rodriguez",
+    price: 149,
     outcomes: [
-      "Read and interpret stock charts",
-      "Analyze company fundamentals",
-      "Build a diversified portfolio",
-      "Understand market cycles and timing"
+      "Set up secure hot and cold wallets",
+      "Execute trades on major exchanges",
+      "Identify profitable market trends",
+      "Implement DeFi strategies"
     ],
     duration: "6 hours",
-    level: "Intermediate",
+    level: "Beginner",
     lessons: [
       {
         id: "2-1",
         course_id: "2",
-        title: "Understanding Market Cycles",
+        title: "Getting Started with Exchanges",
         video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        description: "Learn to identify bull and bear markets, understand economic indicators, and position your portfolio for different market conditions.",
-        ai_prompt: "Act as a stock market analyst. Explain the current market cycle we're in based on these indicators: [PASTE INDICATORS]. Provide actionable insights on how to position a portfolio during this phase. Include specific sector recommendations and risk management strategies.",
+        description: "A comprehensive guide to setting up accounts on major crypto exchanges with maximum security protocols.",
+        ai_prompt: "Act as a cryptocurrency security expert. Review my exchange security setup: [DESCRIBE YOUR SETUP]. Identify vulnerabilities and provide a step-by-step hardening guide including 2FA, withdrawal whitelists, and cold storage integration.",
         duration: "35 min",
         order: 1,
         app_links: [
-          { id: "4", app_name: "TradingView", app_url: "https://www.tradingview.com", icon_name: "LineChart" },
-          { id: "5", app_name: "Yahoo Finance", app_url: "https://finance.yahoo.com", icon_name: "TrendingUp" },
-          { id: "6", app_name: "Seeking Alpha", app_url: "https://seekingalpha.com", icon_name: "FileText" }
+          { id: "4", app_name: "Coinbase", app_url: "https://www.coinbase.com", icon_name: "Coins" },
+          { id: "5", app_name: "Binance", app_url: "https://www.binance.com", icon_name: "BarChart3" },
+          { id: "6", app_name: "CoinGecko", app_url: "https://www.coingecko.com", icon_name: "Search" }
         ]
       }
     ],
@@ -107,17 +107,17 @@ export const mockCourses: Course[] = [
   },
   {
     id: "3",
-    title: "Crypto Trading Essentials",
-    category: "Crypto",
-    description: "Navigate the world of cryptocurrency with confidence. From wallet setup to trading strategies, learn everything you need to trade crypto safely.",
-    thumbnail_url: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=450&fit=crop",
-    instructor: "Alex Rodriguez",
-    price: 79,
+    title: "Freelance Copywriting",
+    category: "Skill",
+    description: "Turn words into wealth. Master the art of persuasive writing and build a six-figure freelance copywriting business.",
+    thumbnail_url: "https://images.unsplash.com/photo-1455390582262-044cdead277a?w=800&h=600&fit=crop",
+    instructor: "Sarah Mitchell",
+    price: null,
     outcomes: [
-      "Set up secure crypto wallets",
-      "Trade safely on major exchanges",
-      "Identify market trends and patterns",
-      "Implement risk management strategies"
+      "Write copy that converts at 5x industry average",
+      "Land $5,000+ clients consistently",
+      "Build a personal brand that attracts leads",
+      "Create passive income through templates"
     ],
     duration: "5 hours",
     level: "Beginner",
@@ -125,16 +125,16 @@ export const mockCourses: Course[] = [
       {
         id: "3-1",
         course_id: "3",
-        title: "Getting Started with Exchanges",
+        title: "The Psychology of Persuasion",
         video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        description: "A comprehensive guide to setting up accounts on major crypto exchanges. Learn about security features, verification processes, and best practices.",
-        ai_prompt: "Act as a cryptocurrency security expert. Review my exchange security setup and suggest improvements. I'm using [EXCHANGE NAME] and have enabled [CURRENT SECURITY FEATURES]. What additional steps should I take to protect my assets? Include recommendations for cold storage solutions.",
+        description: "Discover the psychological triggers that make people buy and how to ethically use them in your copy.",
+        ai_prompt: "Act as a world-class copywriter. I need you to rewrite this sales page using proven persuasion frameworks (AIDA, PAS, 4Ps). Original copy: [PASTE YOUR COPY]. Focus on emotional triggers, social proof integration, and urgency without being sleazy.",
         duration: "40 min",
         order: 1,
         app_links: [
-          { id: "7", app_name: "Coinbase", app_url: "https://www.coinbase.com", icon_name: "Coins" },
-          { id: "8", app_name: "Binance", app_url: "https://www.binance.com", icon_name: "BarChart3" },
-          { id: "9", app_name: "CoinGecko", app_url: "https://www.coingecko.com", icon_name: "Search" }
+          { id: "7", app_name: "Upwork", app_url: "https://www.upwork.com", icon_name: "Briefcase" },
+          { id: "8", app_name: "Copy.ai", app_url: "https://www.copy.ai", icon_name: "Bot" },
+          { id: "9", app_name: "Grammarly", app_url: "https://www.grammarly.com", icon_name: "Check" }
         ]
       }
     ],
@@ -142,34 +142,34 @@ export const mockCourses: Course[] = [
   },
   {
     id: "4",
-    title: "Bond Investment Strategies",
-    category: "Bonds",
-    description: "Learn how to generate stable income through bond investments. Understand yield curves, credit ratings, and build a fixed-income portfolio.",
-    thumbnail_url: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?w=800&h=450&fit=crop",
-    instructor: "David Park",
-    price: 59,
+    title: "Dropshipping Empire",
+    category: "Skill",
+    description: "Build an e-commerce business from scratch. Learn product research, supplier management, and scaling strategies.",
+    thumbnail_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
+    instructor: "James Wilson",
+    price: 299,
     outcomes: [
-      "Understand bond pricing mechanics",
-      "Analyze credit ratings effectively",
-      "Build a diversified bond portfolio",
-      "Navigate interest rate environments"
+      "Find winning products before they trend",
+      "Set up automated fulfillment systems",
+      "Run profitable Facebook & TikTok ads",
+      "Scale to $100k/month revenue"
     ],
-    duration: "4 hours",
+    duration: "10 hours",
     level: "Intermediate",
     lessons: [
       {
         id: "4-1",
         course_id: "4",
-        title: "Bond Basics and Yield Analysis",
+        title: "Product Research Mastery",
         video_url: "https://www.youtube.com/embed/dQw4w9WgXcQ",
-        description: "Master the fundamentals of bond investing. Learn about coupon rates, yield to maturity, and how interest rates affect bond prices.",
-        ai_prompt: "Act as a fixed-income investment advisor. Analyze this bond: [BOND DETAILS - coupon rate, maturity, credit rating]. Calculate the yield to maturity and compare it to current market rates. Should I buy, hold, or sell? Explain the risks and potential returns.",
-        duration: "30 min",
+        description: "Learn the exact framework to find products with 5x profit margins before your competitors.",
+        ai_prompt: "Act as a dropshipping product research expert. Analyze this product niche: [YOUR NICHE]. Provide competitor analysis, profit margin calculations, supplier recommendations, and a 30-day launch roadmap.",
+        duration: "50 min",
         order: 1,
         app_links: [
-          { id: "10", app_name: "FINRA", app_url: "https://www.finra.org/investors/tools-calculators", icon_name: "Calculator" },
-          { id: "11", app_name: "Treasury Direct", app_url: "https://www.treasurydirect.gov", icon_name: "Landmark" },
-          { id: "12", app_name: "Morningstar", app_url: "https://www.morningstar.com", icon_name: "Star" }
+          { id: "10", app_name: "Shopify", app_url: "https://www.shopify.com", icon_name: "Store" },
+          { id: "11", app_name: "AliExpress", app_url: "https://www.aliexpress.com", icon_name: "Package" },
+          { id: "12", app_name: "Canva", app_url: "https://www.canva.com", icon_name: "Palette" }
         ]
       }
     ],
@@ -203,7 +203,6 @@ export const getRelatedCourses = (courseId: string, limit: number = 3): Course[]
   return mockCourses
     .filter(course => course.id !== courseId)
     .sort((a, b) => {
-      // Prioritize same category
       if (a.category === currentCourse.category && b.category !== currentCourse.category) return -1;
       if (b.category === currentCourse.category && a.category !== currentCourse.category) return 1;
       return 0;
