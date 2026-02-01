@@ -22,12 +22,12 @@ const Index = () => {
 
   // Split courses for two marquee rows (specified order)
   // Row 1: Stock, Dropshipping, Vibe Coding, Web Design
-  // Row 2: Crypto, Content, Copywriting, Ad Management
+  // Row 2: Crypto, Content, Ads
   const row1Courses = mockCourses.filter(c => 
     ["stock", "dropshipping", "vibecoding", "webdesign"].includes(c.id)
   );
   const row2Courses = mockCourses.filter(c => 
-    ["crypto", "content", "copywriting", "admanagement"].includes(c.id)
+    ["crypto", "content", "ads"].includes(c.id)
   );
 
   return (
