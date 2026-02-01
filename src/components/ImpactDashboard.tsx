@@ -62,9 +62,10 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                     backgroundColor: '#000', 
                     border: '1px solid #333',
                     borderRadius: '8px',
-                    color: '#fff',
                     zIndex: 100
-                  }} 
+                  }}
+                  labelStyle={{ color: '#fff' }}
+                  itemStyle={{ color: '#22c55e' }}
                 />
                 <Line 
                   type="monotone" 
@@ -95,9 +96,10 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                     backgroundColor: '#000', 
                     border: '1px solid #333',
                     borderRadius: '8px',
-                    color: '#fff',
                     zIndex: 100
-                  }} 
+                  }}
+                  labelStyle={{ color: '#fff' }}
+                  itemStyle={{ color: '#22c55e' }}
                 />
                 <Bar dataKey="speed" fill="hsl(var(--skill))" radius={[0, 4, 4, 0]} />
               </BarChart>
@@ -131,9 +133,10 @@ const ImpactDashboard = ({ stats }: ImpactDashboardProps) => {
                     backgroundColor: '#000', 
                     border: '1px solid #333',
                     borderRadius: '8px',
-                    color: '#fff',
                     zIndex: 100
-                  }} 
+                  }}
+                  labelStyle={{ color: '#fff' }}
+                  itemStyle={{ color: '#22c55e' }}
                 />
               </PieChart>
             </ResponsiveContainer>
