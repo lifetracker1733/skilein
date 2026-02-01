@@ -1,5 +1,5 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import type { Course, Category } from "@/data/mockCourses";
 
 interface CourseCardProps {
@@ -15,40 +15,45 @@ const tagColors: Record<Category, string> = {
 };
 
 const CourseCard = ({ course, featured = false }: CourseCardProps) => {
+  const [imageError, setImageError] = useState(false);
+
   return (
     <Link to={`/course/${course.id}`} className="group block">
-      <div className={`relative overflow-hidden rounded-2xl card-glow ${featured ? 'h-full' : ''}`}>
-        {/* Background Image with Gradient Overlay */}
-        <AspectRatio ratio={featured ? 4 / 5 : 16 / 10}>
-          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
+      <div className={`relative overflow-hidden rounded-2xl border border-white/5 cursor-pointer ${featured ? 'aspect-[4/5]' : 'aspect-[16/10]'}`}>
+        {/* Background Image with Brightness Filter */}
+        {!imageError ? (
           <img
             src={course.thumbnail_url}
             alt={course.title}
-            className="h-full w-full object-cover img-gritty transition-transform duration-500 group-hover:scale-105"
+            onError={() => setImageError(true)}
+            className="absolute inset-0 h-full w-full object-cover brightness-75 group-hover:scale-105 transition-transform duration-500"
           />
-        </AspectRatio>
+        ) : (
+          /* Fallback gradient with centered title */
+          <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-gray-800 to-black flex items-center justify-center p-6">
+            <span className="text-white/50 text-center font-medium">{course.title}</span>
+          </div>
+        )}
 
-        {/* Content Overlay */}
-        <div className="absolute inset-0 z-20 flex flex-col justify-end p-5">
+        {/* Gradient Overlay - Bottom Focused */}
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent" />
+
+        {/* Content - Bottom Positioned */}
+        <div className="absolute bottom-4 left-4 right-4 z-20">
           {/* Category Tag */}
-          <div className={`inline-flex self-start px-3 py-1 rounded-full text-xs font-semibold border mb-3 ${tagColors[course.category]}`}>
+          <div className={`inline-flex px-2.5 py-1 rounded-full text-[10px] font-semibold border mb-2 ${tagColors[course.category]}`}>
             {course.category}
           </div>
           
           {/* Title */}
-          <h3 className="text-xl font-bold text-white mb-2 tracking-tight">
+          <h3 className="text-white font-bold text-lg leading-tight mb-1">
             {course.title}
           </h3>
           
-          {/* Price */}
-          <div className="flex items-center justify-between">
-            <span className="text-white/60 text-sm font-medium">
-              {course.instructor}
-            </span>
-            <span className={`font-bold ${course.price ? 'text-white' : 'text-tag-skill'}`}>
-              {course.price ? `$${course.price}` : 'Free'}
-            </span>
-          </div>
+          {/* Instructor */}
+          <p className="text-gray-400 text-xs uppercase tracking-wider">
+            {course.instructor}
+          </p>
         </div>
 
         {/* Hover Border Glow */}

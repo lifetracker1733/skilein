@@ -63,7 +63,7 @@ export const getYouTubeThumbnail = (videoID: string) =>
 export const mockCourses: Course[] = [
   {
     id: "dropshipping",
-    title: "Dropshipping: The Winning Store",
+    title: "Dropshipping: The 2026 Blueprint",
     category: "Skill",
     description: "Complete A-Z guide: Finding products, Shopify setup, and viral marketing.",
     thumbnail_url: getYouTubeThumbnail("KC4cdxyiTIQ"),
@@ -167,11 +167,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "vibecoding",
-    title: "Vibe Coding: Cursor AI",
+    title: "Coding with AI (Full Course)",
     category: "Skill",
     description: "How to build software without knowing how to code using AI tools.",
-    thumbnail_url: getYouTubeThumbnail("yk9nX8i3i8Q"),
-    instructor: "Cursor Team",
+    thumbnail_url: getYouTubeThumbnail("bTpQ93E-dKE"),
+    instructor: "FreeCodeCamp",
     price: null,
     outcomes: [
       "Build full-stack web applications with AI",
@@ -222,7 +222,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Module 1: Setup & Context",
         topics: ["Installing Cursor", "Natural Language Programming", "Setting AI Rules"],
-        videoID: "cE84Q5IRR6U",
+        videoID: "bTpQ93E-dKE",
         checklist: [
           "Install Cursor",
           "Index Codebase (Ctrl+L)",
@@ -255,11 +255,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "stock",
-    title: "Stock Market Mastery",
+    title: "Stock Market For Beginners",
     category: "Finance",
     description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
-    thumbnail_url: getYouTubeThumbnail("bb6_M_srMBk"),
-    instructor: "Humphrey Yang",
+    thumbnail_url: getYouTubeThumbnail("8IjJ7DkwJ6U"),
+    instructor: "Trading 212",
     price: null,
     outcomes: [
       "Read and interpret stock charts like a pro",
@@ -309,7 +309,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Basics of Investing",
         topics: ["How the Market Works", "ETFs vs Stocks", "Understanding Market Cycles"],
-        videoID: "DJlC221Alro",
+        videoID: "8IjJ7DkwJ6U",
         checklist: [
           "Open Demat Account",
           "Understand PE Ratio",
@@ -341,11 +341,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "crypto",
-    title: "Crypto Trading Blueprint",
+    title: "Crypto Trading 101",
     category: "Crypto",
     description: "Technical analysis and risk management for the 2025 bull run.",
-    thumbnail_url: getYouTubeThumbnail("aaMFEk5Zuq4"),
-    instructor: "Craig Percoco",
+    thumbnail_url: getYouTubeThumbnail("1YyAzVmP9xQ"),
+    instructor: "Binance Academy",
     price: null,
     outcomes: [
       "Set up secure hot and cold wallets",
@@ -395,7 +395,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Trading Strategy",
         topics: ["Swing Trading", "Cycle Analysis", "Altcoin Selection"],
-        videoID: "aaMFEk5Zuq4",
+        videoID: "1YyAzVmP9xQ",
         checklist: [
           "Setup Wallet",
           "Understand Market Cap",
@@ -413,10 +413,10 @@ export const mockCourses: Course[] = [
   },
   {
     id: "prompt",
-    title: "Prompt Engineering",
+    title: "Prompt Engineering Masterclass",
     category: "Skill",
     description: "Master LLMs, RAG, and Context Engineering. The highest paying skill of 2026.",
-    thumbnail_url: getYouTubeThumbnail("BUdwDOLQVWc"),
+    thumbnail_url: getYouTubeThumbnail("ME-hG955Ovo"),
     instructor: "Simplilearn",
     price: null,
     outcomes: [
@@ -467,7 +467,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Mastering LLMs",
         topics: ["Zero-shot vs Few-shot", "Context Windows", "Chain of Thought"],
-        videoID: "BUdwDOLQVWc",
+        videoID: "ME-hG955Ovo",
         checklist: [
           "Zero-Shot Prompting",
           "Chain of Thought",
@@ -485,11 +485,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "admanagement",
-    title: "Meta & TikTok Ads",
+    title: "Facebook Ads Course 2025",
     category: "Skill",
     description: "The only Facebook Ads tutorial you need for 2025 ROI.",
-    thumbnail_url: getYouTubeThumbnail("mZWJCjhZanQ"),
-    instructor: "Neil Patel",
+    thumbnail_url: getYouTubeThumbnail("1v3a9j3g-yI"),
+    instructor: "HubSpot Marketing",
     price: null,
     outcomes: [
       "Set up and optimize Facebook Ads campaigns",
@@ -539,7 +539,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Facebook Ads Setup",
         topics: ["Platform Overview", "Pixel Setup", "Audience Building"],
-        videoID: "jGyo2BJYg3A",
+        videoID: "1v3a9j3g-yI",
         checklist: [
           "Install Pixel",
           "Verify Domain",
@@ -555,12 +555,12 @@ export const mockCourses: Course[] = [
     created_at: "2024-03-01"
   },
   {
-    id: "aicontent",
-    title: "AI Content & Virality",
+    id: "content",
+    title: "Content Creation & Virality",
     category: "Skill",
     description: "9 AI Skills that will make you rich in 2025 (Content Focus).",
-    thumbnail_url: getYouTubeThumbnail("VwedJBqdUIs"),
-    instructor: "Viral Lab",
+    thumbnail_url: getYouTubeThumbnail("4vT35gT8jGQ"),
+    instructor: "Think Media",
     price: null,
     outcomes: [
       "Generate video scripts that hook viewers in 3 seconds",
@@ -609,7 +609,7 @@ export const mockCourses: Course[] = [
       {
         phaseTitle: "Phase 1: Faceless Channels",
         topics: ["Niche Selection", "AI Voiceovers", "Script Templates"],
-        videoID: "VwedJBqdUIs",
+        videoID: "4vT35gT8jGQ",
         checklist: [
           "Choose Profitable Niche",
           "Setup AI Voiceover Tool",
