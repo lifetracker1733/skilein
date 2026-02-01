@@ -68,7 +68,7 @@ const CourseDetail = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-background">
       <Navbar />
 
       {/* Back Button */}
