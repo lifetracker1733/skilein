@@ -12,17 +12,16 @@ const categories: FilterOption[] = ["All", "Freelancing", "Stock Trading", "Cryp
 
 const CategoryFilter = ({ selectedCategory, onCategoryChange }: CategoryFilterProps) => {
   return (
-    <div className="flex flex-wrap gap-2 md:gap-3">
+    <div className="flex flex-wrap gap-2">
       {categories.map((category) => (
         <button
           key={category}
           onClick={() => onCategoryChange(category)}
           className={cn(
-            "px-4 py-2 rounded-full text-sm font-medium transition-all duration-200",
-            "border hover:border-primary/50",
+            "px-5 py-2 rounded-full text-sm font-medium transition-all duration-200",
             selectedCategory === category
-              ? "gradient-primary text-white border-transparent shadow-lg"
-              : "bg-card text-muted-foreground border-border hover:text-foreground hover:bg-muted"
+              ? "bg-foreground text-background"
+              : "bg-transparent text-muted-foreground border border-border hover:border-foreground/30 hover:text-foreground"
           )}
         >
           {category}

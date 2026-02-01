@@ -14,11 +14,11 @@ const SearchBar = ({ value, onChange, placeholder = "Search courses..." }: Searc
 
   return (
     <div 
-      className={`relative flex items-center transition-all duration-200 ${
-        isFocused ? 'ring-2 ring-primary/50' : ''
-      } rounded-full bg-card border border-border overflow-hidden`}
+      className={`relative flex items-center transition-all duration-300 rounded-full border ${
+        isFocused ? 'border-foreground/30 bg-card' : 'border-border bg-card/50'
+      }`}
     >
-      <Search className="absolute left-4 h-5 w-5 text-muted-foreground" />
+      <Search className="absolute left-4 h-4 w-4 text-muted-foreground" />
       <Input
         type="text"
         value={value}
@@ -26,16 +26,16 @@ const SearchBar = ({ value, onChange, placeholder = "Search courses..." }: Searc
         onFocus={() => setIsFocused(true)}
         onBlur={() => setIsFocused(false)}
         placeholder={placeholder}
-        className="pl-12 pr-10 py-6 bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground"
+        className="pl-11 pr-10 py-5 bg-transparent border-0 focus-visible:ring-0 focus-visible:ring-offset-0 text-foreground placeholder:text-muted-foreground font-medium text-sm"
       />
       {value && (
         <Button
           variant="ghost"
           size="icon"
           onClick={() => onChange("")}
-          className="absolute right-2 h-8 w-8 rounded-full hover:bg-muted"
+          className="absolute right-2 h-7 w-7 rounded-full hover:bg-secondary text-muted-foreground"
         >
-          <X className="h-4 w-4" />
+          <X className="h-3 w-3" />
         </Button>
       )}
     </div>

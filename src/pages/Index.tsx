@@ -1,5 +1,5 @@
 import { useState, useMemo } from "react";
-import { ArrowRight, Sparkles } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -17,12 +17,10 @@ const Index = () => {
   const filteredCourses = useMemo(() => {
     let courses = mockCourses;
 
-    // Filter by category
     if (selectedCategory !== "All") {
       courses = courses.filter((course) => course.category === selectedCategory);
     }
 
-    // Filter by search query
     if (searchQuery.trim()) {
       const query = searchQuery.toLowerCase();
       courses = courses.filter(
@@ -40,40 +38,41 @@ const Index = () => {
     <div className="min-h-screen flex flex-col bg-background">
       <Navbar />
 
-      {/* Hero Section */}
-      <section className="relative py-20 md:py-32 overflow-hidden">
-        {/* Background gradient */}
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/20 via-background to-background" />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/10 rounded-full blur-3xl" />
+      {/* Hero Section - Educate.io Style */}
+      <section className="relative py-24 md:py-36 overflow-hidden">
+        {/* Subtle gradient orb */}
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[120px] pointer-events-none" />
         
-        <div className="container mx-auto px-4 relative z-10">
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
           <div className="max-w-4xl mx-auto text-center animate-fade-in">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-card border border-border mb-6">
-              <Sparkles className="h-4 w-4 text-primary" />
-              <span className="text-sm text-muted-foreground">Learn skills that generate income</span>
+            {/* Pill badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 backdrop-blur-sm mb-8">
+              <div className="w-1.5 h-1.5 rounded-full bg-category-freelancing animate-glow-pulse" />
+              <span className="text-xs text-muted-foreground font-medium">Skills that generate income</span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-foreground mb-6 leading-tight">
-              Master Skills That{" "}
-              <span className="text-gradient">Pay</span>
+            <h1 className="text-display text-5xl md:text-7xl lg:text-8xl text-foreground mb-6">
+              Master Skills
+              <br />
+              <span className="text-muted-foreground">That Pay</span>
             </h1>
             
-            <p className="text-lg md:text-xl text-muted-foreground mb-8 max-w-2xl mx-auto">
-              Learn freelancing, stock trading, crypto investing, and bond strategies from industry experts. Turn your knowledge into income.
+            <p className="text-base md:text-lg text-muted-foreground mb-10 max-w-xl mx-auto font-medium leading-relaxed">
+              Learn freelancing, stock trading, crypto investing, and bond strategies from industry experts.
             </p>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
                 size="lg" 
-                className="gradient-primary gradient-primary-hover text-white rounded-full px-8 py-6 text-lg font-semibold group"
+                className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 py-6 text-base font-semibold group"
               >
                 Start Learning
-                <ArrowRight className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
               </Button>
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="rounded-full px-8 py-6 text-lg border-border hover:bg-card"
+                className="rounded-full px-8 py-6 text-base border-border hover:bg-card hover:border-foreground/20 text-foreground"
               >
                 Browse Courses
               </Button>
@@ -84,49 +83,49 @@ const Index = () => {
 
       {/* Courses Section */}
       <section className="py-16 md:py-24">
-        <div className="container mx-auto px-4">
+        <div className="container mx-auto px-4 md:px-6">
           {/* Section Header */}
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
+          <div className="mb-12">
+            <h2 className="text-display text-3xl md:text-4xl text-foreground mb-3">
               Featured Courses
             </h2>
-            <p className="text-muted-foreground max-w-2xl mx-auto">
-              Expertly crafted courses to help you master money-making skills
+            <p className="text-muted-foreground font-medium">
+              Expertly crafted courses to master money-making skills
             </p>
           </div>
 
           {/* Filters */}
-          <div className="flex flex-col lg:flex-row gap-6 mb-10 items-center justify-between">
+          <div className="flex flex-col lg:flex-row gap-6 mb-10 items-start lg:items-center justify-between">
             <CategoryFilter
               selectedCategory={selectedCategory}
               onCategoryChange={setSelectedCategory}
             />
-            <div className="w-full lg:w-80">
+            <div className="w-full lg:w-72">
               <SearchBar value={searchQuery} onChange={setSearchQuery} />
             </div>
           </div>
 
-          {/* Course Grid */}
+          {/* Bento Grid */}
           {filteredCourses.length > 0 ? (
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-5">
               {filteredCourses.map((course) => (
                 <CourseCard key={course.id} course={course} />
               ))}
             </div>
           ) : (
-            <div className="text-center py-16">
-              <p className="text-muted-foreground text-lg">
-                No courses found. Try adjusting your filters.
+            <div className="text-center py-20">
+              <p className="text-muted-foreground font-medium mb-4">
+                No courses found matching your criteria.
               </p>
               <Button
-                variant="link"
+                variant="outline"
                 onClick={() => {
                   setSelectedCategory("All");
                   setSearchQuery("");
                 }}
-                className="mt-2 text-primary"
+                className="rounded-full border-border hover:bg-card"
               >
-                Clear all filters
+                Clear filters
               </Button>
             </div>
           )}
@@ -134,21 +133,23 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-16 md:py-24 bg-card border-y border-border">
-        <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto text-center">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Ready to Start Earning?
+      <section className="py-24 md:py-32 relative overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
+        
+        <div className="container mx-auto px-4 md:px-6 relative z-10">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="text-display text-3xl md:text-5xl text-foreground mb-4">
+              Ready to Start?
             </h2>
-            <p className="text-muted-foreground mb-8">
-              Join thousands of students who are already building their income streams with our courses.
+            <p className="text-muted-foreground font-medium mb-8 text-base">
+              Join thousands building their income streams with our courses.
             </p>
             <Button 
               size="lg" 
-              className="gradient-primary gradient-primary-hover text-white rounded-full px-8 py-6 text-lg font-semibold"
+              className="bg-foreground text-background hover:bg-foreground/90 rounded-full px-8 py-6 text-base font-semibold"
             >
               Get Started Free
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </div>
         </div>
