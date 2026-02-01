@@ -3,6 +3,7 @@ export type Category = "Finance" | "Web3" | "Skill" | "Crypto";
 export interface Tool {
   name: string;
   url: string;
+  icon?: string;
 }
 
 export interface AppLink {
@@ -73,9 +74,9 @@ export const mockCourses: Course[] = [
     duration: "8 hours",
     level: "Beginner",
     tools: [
-      { name: "Shopify (Trial)", url: "https://www.shopify.com/free-trial" },
-      { name: "AutoDS", url: "https://www.autods.com/" },
-      { name: "TikTok Ads", url: "https://ads.tiktok.com/" }
+      { name: "Shopify (120 Day Trial)", url: "https://www.shopify.com/free-trial", icon: "shopping-bag" },
+      { name: "AutoDS (Automation)", url: "https://www.autods.com/", icon: "zap" },
+      { name: "TikTok Creative Center", url: "https://ads.tiktok.com/business/creativecenter", icon: "video" }
     ],
     stats: {
       market: "$514B",
@@ -177,9 +178,9 @@ export const mockCourses: Course[] = [
     duration: "4 hours",
     level: "Beginner",
     tools: [
-      { name: "Cursor Editor", url: "https://www.cursor.com/" },
-      { name: "V0.dev", url: "https://v0.dev/" },
-      { name: "Replit", url: "https://replit.com/" }
+      { name: "Cursor Editor", url: "https://www.cursor.com/", icon: "code" },
+      { name: "V0.dev (Frontend)", url: "https://v0.dev/", icon: "layout" },
+      { name: "Replit", url: "https://replit.com/", icon: "terminal" }
     ],
     stats: {
       market: "$34B",
@@ -265,9 +266,8 @@ export const mockCourses: Course[] = [
     duration: "6 hours",
     level: "Intermediate",
     tools: [
-      { name: "TradingView", url: "https://www.tradingview.com/" },
-      { name: "Zerodha / Robinhood", url: "https://zerodha.com/" },
-      { name: "Screener.in", url: "https://www.screener.in/" }
+      { name: "TradingView", url: "https://www.tradingview.com/", icon: "bar-chart" },
+      { name: "Screener.in", url: "https://www.screener.in/", icon: "search" }
     ],
     stats: {
       market: "$110T",
@@ -352,8 +352,8 @@ export const mockCourses: Course[] = [
     duration: "7 hours",
     level: "Intermediate",
     tools: [
-      { name: "Binance", url: "https://www.binance.com/" },
-      { name: "CoinMarketCap", url: "https://coinmarketcap.com/" }
+      { name: "Binance", url: "https://www.binance.com/", icon: "coins" },
+      { name: "CoinMarketCap", url: "https://coinmarketcap.com/", icon: "trending-up" }
     ],
     stats: {
       market: "$3T",
@@ -424,8 +424,8 @@ export const mockCourses: Course[] = [
     duration: "5 hours",
     level: "Beginner",
     tools: [
-      { name: "ChatGPT", url: "https://chat.openai.com/" },
-      { name: "Claude 3", url: "https://claude.ai/" }
+      { name: "ChatGPT", url: "https://chat.openai.com/", icon: "bot" },
+      { name: "Claude 3", url: "https://claude.ai/", icon: "brain" }
     ],
     stats: {
       market: "High Demand",

@@ -1,13 +1,7 @@
 import { useState } from "react";
-import { Copy, Check, Terminal, ExternalLink, Wrench, ChevronDown, CheckCircle2, Circle } from "lucide-react";
+import { Copy, Check, Terminal, ExternalLink, CheckCircle2, Circle, ShoppingBag, Zap, Video, Code, Layout, TerminalSquare, BarChart, Search, Coins, TrendingUp, Bot, Brain, Wrench } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useToast } from "@/hooks/use-toast";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import type { AppLink, Tool } from "@/data/mockCourses";
 
 interface SkileBoxProps {
@@ -31,6 +25,39 @@ const iconMap: Record<string, React.ReactNode> = {
   Package: "📦",
   Palette: "🎨",
   CreditCard: "💳",
+};
+
+// Map tool icon strings to Lucide components
+const getToolIcon = (iconName?: string) => {
+  const iconClasses = "h-4 w-4";
+  switch (iconName) {
+    case "shopping-bag":
+      return <ShoppingBag className={iconClasses} />;
+    case "zap":
+      return <Zap className={iconClasses} />;
+    case "video":
+      return <Video className={iconClasses} />;
+    case "code":
+      return <Code className={iconClasses} />;
+    case "layout":
+      return <Layout className={iconClasses} />;
+    case "terminal":
+      return <TerminalSquare className={iconClasses} />;
+    case "bar-chart":
+      return <BarChart className={iconClasses} />;
+    case "search":
+      return <Search className={iconClasses} />;
+    case "coins":
+      return <Coins className={iconClasses} />;
+    case "trending-up":
+      return <TrendingUp className={iconClasses} />;
+    case "bot":
+      return <Bot className={iconClasses} />;
+    case "brain":
+      return <Brain className={iconClasses} />;
+    default:
+      return <Wrench className={iconClasses} />;
+  }
 };
 
 const SkileBox = ({ prompt, appLinks, checklist, tools }: SkileBoxProps) => {
@@ -88,6 +115,39 @@ const SkileBox = ({ prompt, appLinks, checklist, tools }: SkileBoxProps) => {
       </div>
 
       <div className="p-5 space-y-6">
+        {/* Digital Toolbox - Always Visible */}
+        {tools.length > 0 && (
+          <div className="glass rounded-xl p-4 border border-white/10">
+            <div className="flex items-center gap-2 mb-4">
+              <span className="text-lg">🧰</span>
+              <span className="text-xs font-semibold text-white/60 uppercase tracking-wider">
+                Digital Toolbox
+              </span>
+            </div>
+            
+            {/* Horizontal Tool Cards */}
+            <div className="flex flex-wrap gap-3">
+              {tools.map((tool, index) => (
+                <a
+                  key={index}
+                  href={tool.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex items-center gap-2.5 px-4 py-2.5 rounded-full bg-white/5 border border-white/10 hover:bg-white hover:text-black hover:border-white transition-all duration-200"
+                >
+                  <span className="text-tag-skill group-hover:text-black transition-colors">
+                    {getToolIcon(tool.icon)}
+                  </span>
+                  <span className="text-sm font-medium text-white group-hover:text-black transition-colors">
+                    {tool.name}
+                  </span>
+                  <ExternalLink className="h-3 w-3 opacity-40 group-hover:opacity-100 transition-opacity" />
+                </a>
+              ))}
+            </div>
+          </div>
+        )}
+
         {/* Phase Checklist Section */}
         {checklist.length > 0 && (
           <div className="bg-black/40 rounded-xl p-4 border border-white/5">
@@ -173,57 +233,24 @@ const SkileBox = ({ prompt, appLinks, checklist, tools }: SkileBoxProps) => {
           </div>
         </div>
 
-        {/* Tools Section */}
-        <div className="flex flex-wrap items-center gap-3">
-          {/* Tools Dropdown */}
-          {tools.length > 0 && (
-            <DropdownMenu>
-              <DropdownMenuTrigger asChild>
-                <Button
-                  variant="outline"
-                  className="rounded-full gap-2 border-white/10 bg-white/5 text-white hover:bg-white hover:text-black transition-all duration-200"
-                >
-                  <Wrench className="h-4 w-4" />
-                  🧰 Tools Used
-                  <ChevronDown className="h-4 w-4 opacity-50" />
-                </Button>
-              </DropdownMenuTrigger>
-              <DropdownMenuContent 
-                align="start" 
-                className="w-56 bg-background border-border"
+        {/* Quick App Links */}
+        {appLinks.length > 0 && (
+          <div className="flex flex-wrap items-center gap-3">
+            {appLinks.map((link) => (
+              <a
+                key={link.id}
+                href={link.app_url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full glass text-sm font-medium text-white hover:bg-white hover:text-black transition-all duration-200 group"
               >
-                {tools.map((tool, index) => (
-                  <DropdownMenuItem key={index} asChild>
-                    <a
-                      href={tool.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="flex items-center justify-between cursor-pointer"
-                    >
-                      <span className="font-medium">{tool.name}</span>
-                      <ExternalLink className="h-3.5 w-3.5 opacity-50" />
-                    </a>
-                  </DropdownMenuItem>
-                ))}
-              </DropdownMenuContent>
-            </DropdownMenu>
-          )}
-
-          {/* Quick App Links */}
-          {appLinks.map((link) => (
-            <a
-              key={link.id}
-              href={link.app_url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full glass text-sm font-medium text-white hover:bg-white hover:text-black transition-all duration-200 group"
-            >
-              <span>{iconMap[link.icon_name] || "🔗"}</span>
-              <span>{link.app_name}</span>
-              <ExternalLink className="h-3 w-3 opacity-40 group-hover:opacity-100" />
-            </a>
-          ))}
-        </div>
+                <span>{iconMap[link.icon_name] || "🔗"}</span>
+                <span>{link.app_name}</span>
+                <ExternalLink className="h-3 w-3 opacity-40 group-hover:opacity-100" />
+              </a>
+            ))}
+          </div>
+        )}
       </div>
     </div>
   );
