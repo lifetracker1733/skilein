@@ -1,5 +1,10 @@
 export type Category = "Finance" | "Web3" | "Skill" | "Crypto";
 
+export interface Tool {
+  name: string;
+  url: string;
+}
+
 export interface AppLink {
   id: string;
   app_name: string;
@@ -11,6 +16,7 @@ export interface CurriculumPhase {
   phaseTitle: string;
   topics: string[];
   videoID: string;
+  checklist: string[];
   ai_prompt?: string;
   app_links?: AppLink[];
 }
@@ -28,6 +34,7 @@ export interface CourseStats {
   market: string;
   growth: string;
   success_rate: string;
+  avg_income?: string;
 }
 
 export interface Course {
@@ -41,6 +48,7 @@ export interface Course {
   outcomes: string[];
   duration: string;
   level: string;
+  tools: Tool[];
   curriculum: CurriculumPhase[];
   stats: CourseStats;
   hall_of_fame: HallOfFameEntry[];
@@ -50,11 +58,11 @@ export interface Course {
 export const mockCourses: Course[] = [
   {
     id: "dropshipping",
-    title: "Dropshipping: The Winning Store",
+    title: "Dropshipping: The Winning Store (2025)",
     category: "Skill",
-    description: "Complete A-Z guide: Finding products, Shopify setup, and ads.",
+    description: "Complete A-Z guide: Finding products, Shopify setup, and viral marketing.",
     thumbnail_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    instructor: "Skile Elite",
+    instructor: "Santrel Media",
     price: null,
     outcomes: [
       "Find winning products before they trend",
@@ -64,27 +72,33 @@ export const mockCourses: Course[] = [
     ],
     duration: "8 hours",
     level: "Beginner",
+    tools: [
+      { name: "Shopify (Trial)", url: "https://www.shopify.com/free-trial" },
+      { name: "AutoDS", url: "https://www.autods.com/" },
+      { name: "TikTok Ads", url: "https://ads.tiktok.com/" }
+    ],
     stats: {
       market: "$514B",
       growth: "23%",
-      success_rate: "84%"
+      success_rate: "84%",
+      avg_income: "$12k/mo"
     },
     hall_of_fame: [
       { 
-        name: "Andreas & Alexander", 
-        income: "$10M+/yr", 
-        rank: 1,
-        bio: "Founders of The Ecom King. Masters of high-ticket dropshipping and building million-dollar brands from scratch.",
-        sources: ["Shopify", "Branding", "Mentorship"],
-        avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
-      },
-      { 
         name: "Harry Coleman", 
-        income: "$1M+/mo", 
-        rank: 2,
+        income: "$1M/mo", 
+        rank: 1,
         bio: "The 'Beast of Ecom'. Famous for general store scaling strategies and Facebook Ads mastery.",
         sources: ["General Stores", "Facebook Ads", "Scaling"],
         avatar_url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
+      },
+      { 
+        name: "Biaheza", 
+        income: "$340k/mo", 
+        rank: 2,
+        bio: "YouTube dropshipping educator who built multiple 7-figure stores using viral products.",
+        sources: ["YouTube", "Dropshipping", "Content"],
+        avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
       },
       { 
         name: "Sebastian Esqueda", 
@@ -92,33 +106,35 @@ export const mockCourses: Course[] = [
         rank: 3,
         bio: "TikTok organic mastermind. Built multiple 7-figure stores using viral TikTok content.",
         sources: ["TikTok", "Organic Traffic", "Branding"],
-        avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
+        avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
       }
     ],
     curriculum: [
       {
-        phaseTitle: "Phase 1: E-Commerce Decoded",
-        topics: ["The Arbitrage Opportunity", "9 Pillars of Dropshipping", "Building a $2M Store"],
+        phaseTitle: "Phase 1: Finding Winners",
+        topics: ["The Arbitrage Opportunity", "Product Research Methods", "Viral Factor Analysis"],
         videoID: "KC4cdxyiTIQ",
-        ai_prompt: "Act as an e-commerce strategist. Explain the dropshipping business model, the difference between arbitrage and brand building, and the 9 essential pillars every successful store needs.",
+        checklist: [
+          "Create TikTok Ad Account",
+          "Scroll TikTok 'Burner' Account",
+          "Identify Viral Factor",
+          "Research competition on AliExpress"
+        ],
+        ai_prompt: "Act as an e-commerce strategist. Explain the dropshipping business model and help me find winning products using trend analysis and social proof indicators.",
         app_links: [
           { id: "1", app_name: "Shopify", app_url: "https://www.shopify.com", icon_name: "Store" }
         ]
       },
       {
-        phaseTitle: "Phase 2: Product Research Playbook",
-        topics: ["The Winning Manifesto", "Finding Viral Products", "Spy Tools Masterclass"],
-        videoID: "h7FqDq5HjMs",
-        ai_prompt: "Act as a product research expert. Help me find a winning dropshipping product in this niche: [YOUR NICHE]. Analyze trends, competition, and profit margins.",
-        app_links: [
-          { id: "1", app_name: "AliExpress", app_url: "https://www.aliexpress.com", icon_name: "Package" },
-          { id: "2", app_name: "Sell The Trend", app_url: "https://sellthetrend.com", icon_name: "TrendingUp" }
-        ]
-      },
-      {
-        phaseTitle: "Phase 3: Store Creation Blueprint",
+        phaseTitle: "Phase 2: Building the Store",
         topics: ["Store Design Secrets", "AI Branding", "Backend Setup"],
-        videoID: "y7vO3-S2D6A",
+        videoID: "uJ0FiWhhHv8",
+        checklist: [
+          "Connect Domain",
+          "Install 'Sense' Theme",
+          "Write Product Description with AI",
+          "Setup Payment Gateway"
+        ],
         ai_prompt: "Act as a Shopify store designer. Help me create a high-converting store design for this product: [YOUR PRODUCT]. Include color schemes, layout recommendations, and trust-building elements.",
         app_links: [
           { id: "1", app_name: "Canva", app_url: "https://www.canva.com", icon_name: "Palette" },
@@ -126,18 +142,15 @@ export const mockCourses: Course[] = [
         ]
       },
       {
-        phaseTitle: "Phase 4: Facebook Ad Mastery",
-        topics: ["Unleashing FB Power", "Testing Strategy", "Scaling & Avoiding Bans"],
-        videoID: "mZWJCjhZanQ",
-        ai_prompt: "Act as a Facebook Ads specialist. Create a testing strategy for this dropshipping product: [YOUR PRODUCT]. Include audience targeting, ad creative suggestions, and budget allocation.",
-        app_links: [
-          { id: "1", app_name: "Meta Ads", app_url: "https://facebook.com/business", icon_name: "TrendingUp" }
-        ]
-      },
-      {
-        phaseTitle: "Phase 5: TikTok Triumph",
-        topics: ["Organic Viral Method", "TikTok Ads Manager", "Creator Partnerships"],
-        videoID: "Eqz--5VvJKA",
+        phaseTitle: "Phase 3: Viral Marketing",
+        topics: ["TikTok Organic Method", "UGC Content Creation", "Paid Ads Testing"],
+        videoID: "vbgJ5lGU3wU",
+        checklist: [
+          "Order Sample Product",
+          "Film 3 UGC Hooks",
+          "Launch $20/day Test Campaign",
+          "Analyze Initial Metrics"
+        ],
         ai_prompt: "Act as a TikTok marketing expert. Create a viral content strategy for this product: [YOUR PRODUCT]. Include hook ideas, trending sounds to use, and posting schedules.",
         app_links: [
           { id: "1", app_name: "TikTok Ads", app_url: "https://ads.tiktok.com", icon_name: "TrendingUp" },
@@ -149,7 +162,7 @@ export const mockCourses: Course[] = [
   },
   {
     id: "vibecoding",
-    title: "Vibe Coding: AI Software Development",
+    title: "Vibe Coding: Cursor AI Masterclass",
     category: "Skill",
     description: "How to build software without knowing how to code using AI tools.",
     thumbnail_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
@@ -163,10 +176,16 @@ export const mockCourses: Course[] = [
     ],
     duration: "4 hours",
     level: "Beginner",
+    tools: [
+      { name: "Cursor Editor", url: "https://www.cursor.com/" },
+      { name: "V0.dev", url: "https://v0.dev/" },
+      { name: "Replit", url: "https://replit.com/" }
+    ],
     stats: {
       market: "$34B",
       growth: "900%",
-      success_rate: "95%"
+      success_rate: "95%",
+      avg_income: "$18k/mo"
     },
     hall_of_fame: [
       { 
@@ -196,32 +215,34 @@ export const mockCourses: Course[] = [
     ],
     curriculum: [
       {
-        phaseTitle: "Module 1: The New Way to Code",
-        topics: ["Installing Cursor", "Natural Language Programming", "Zero-Code Setup"],
-        videoID: "yk9nX8i3i8Q",
+        phaseTitle: "Module 1: Setup & Context",
+        topics: ["Installing Cursor", "Natural Language Programming", "Setting AI Rules"],
+        videoID: "cE84Q5IRR6U",
+        checklist: [
+          "Install Cursor",
+          "Index Codebase (Ctrl+L)",
+          "Set Rules for AI",
+          "Connect to GitHub"
+        ],
         ai_prompt: "Act as a Vibe Coding mentor. Explain how to set up Cursor AI and start building apps using natural language. Include best practices for prompt engineering in code.",
         app_links: [
           { id: "1", app_name: "Cursor", app_url: "https://www.cursor.com", icon_name: "Bot" }
         ]
       },
       {
-        phaseTitle: "Module 2: Building Your First App",
+        phaseTitle: "Module 2: Building Apps",
         topics: ["Frontend with V0", "Backend Logic", "Database Connection"],
-        videoID: "5tvsM6l7TiU",
+        videoID: "SyxEIKvWJnY",
+        checklist: [
+          "Generate Frontend with V0",
+          "Paste into Cursor",
+          "Fix Errors with 'Composer'",
+          "Add Database Integration"
+        ],
         ai_prompt: "Act as a full-stack developer. Help me plan and build this app idea: [YOUR IDEA]. Include tech stack recommendations, database schema, and step-by-step implementation.",
         app_links: [
           { id: "1", app_name: "Lovable", app_url: "https://lovable.dev", icon_name: "Briefcase" },
           { id: "2", app_name: "V0", app_url: "https://v0.dev", icon_name: "Bot" }
-        ]
-      },
-      {
-        phaseTitle: "Module 3: Deploying & Monetizing",
-        topics: ["Vercel Deployment", "Stripe Integration", "Launching on Product Hunt"],
-        videoID: "cE84Q5IRR6U",
-        ai_prompt: "Act as a launch strategist. Help me plan a Product Hunt launch for my app: [YOUR APP]. Include pre-launch checklist, launch day strategy, and post-launch growth tactics.",
-        app_links: [
-          { id: "1", app_name: "Vercel", app_url: "https://vercel.com", icon_name: "Package" },
-          { id: "2", app_name: "Stripe", app_url: "https://stripe.com", icon_name: "CreditCard" }
         ]
       }
     ],
@@ -229,7 +250,7 @@ export const mockCourses: Course[] = [
   },
   {
     id: "stock",
-    title: "Stock Market Mastery",
+    title: "Stock Market Mastery 2025",
     category: "Finance",
     description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
     thumbnail_url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
@@ -243,10 +264,16 @@ export const mockCourses: Course[] = [
     ],
     duration: "6 hours",
     level: "Intermediate",
+    tools: [
+      { name: "TradingView", url: "https://www.tradingview.com/" },
+      { name: "Zerodha / Robinhood", url: "https://zerodha.com/" },
+      { name: "Screener.in", url: "https://www.screener.in/" }
+    ],
     stats: {
       market: "$110T",
       growth: "Steady",
-      success_rate: "12%"
+      success_rate: "12%",
+      avg_income: "$15k/mo"
     },
     hall_of_fame: [
       { 
@@ -276,30 +303,33 @@ export const mockCourses: Course[] = [
     ],
     curriculum: [
       {
-        phaseTitle: "Level 1: Market Fundamentals",
+        phaseTitle: "Basics of Investing",
         topics: ["How the Market Works", "ETFs vs Stocks", "Understanding Market Cycles"],
-        videoID: "p7HKvqRI_Bo",
+        videoID: "DJlC221Alro",
+        checklist: [
+          "Open Demat Account",
+          "Understand PE Ratio",
+          "Analyze Top 50 Companies",
+          "Set Investment Budget"
+        ],
         ai_prompt: "Act as a stock market educator. Explain the fundamentals of how the stock market works, including ETFs, index funds, and the difference between growth and value investing.",
         app_links: [
           { id: "1", app_name: "Yahoo Finance", app_url: "https://finance.yahoo.com", icon_name: "TrendingUp" }
         ]
       },
       {
-        phaseTitle: "Level 2: Technical Analysis",
+        phaseTitle: "Technical Analysis",
         topics: ["Reading Charts", "Candlestick Patterns", "Key Indicators"],
-        videoID: "Ey_Qe1yJ0Qk",
+        videoID: "jhyWANd1704",
+        checklist: [
+          "Setup Candlestick Charts",
+          "Draw Support/Resistance",
+          "Identify Breakouts",
+          "Practice Paper Trading"
+        ],
         ai_prompt: "Act as a technical analyst. Analyze this stock chart pattern: [DESCRIBE PATTERN]. Identify support/resistance levels, trend direction, and potential entry/exit points.",
         app_links: [
           { id: "1", app_name: "TradingView", app_url: "https://www.tradingview.com", icon_name: "LineChart" }
-        ]
-      },
-      {
-        phaseTitle: "Level 3: Options & Risk",
-        topics: ["Calls & Puts", "Risk Management", "Trading Psychology"],
-        videoID: "SD7syTE2xDA",
-        ai_prompt: "Act as an options strategist. Explain options trading strategies for this market scenario: [YOUR SCENARIO]. Include risk management techniques and position sizing.",
-        app_links: [
-          { id: "1", app_name: "Seeking Alpha", app_url: "https://seekingalpha.com", icon_name: "FileText" }
         ]
       }
     ],
@@ -307,11 +337,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "crypto",
-    title: "Crypto & Web3 Blueprint",
+    title: "Crypto Trading Blueprint",
     category: "Crypto",
     description: "Technical analysis and risk management for the 2025 bull run.",
     thumbnail_url: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=600&fit=crop",
-    instructor: "DeFi Pro",
+    instructor: "Craig Percoco",
     price: null,
     outcomes: [
       "Set up secure hot and cold wallets",
@@ -321,10 +351,15 @@ export const mockCourses: Course[] = [
     ],
     duration: "7 hours",
     level: "Intermediate",
+    tools: [
+      { name: "Binance", url: "https://www.binance.com/" },
+      { name: "CoinMarketCap", url: "https://coinmarketcap.com/" }
+    ],
     stats: {
       market: "$3T",
       growth: "Volatile",
-      success_rate: "High Risk"
+      success_rate: "High Risk",
+      avg_income: "$20k/mo"
     },
     hall_of_fame: [
       { 
@@ -354,18 +389,15 @@ export const mockCourses: Course[] = [
     ],
     curriculum: [
       {
-        phaseTitle: "Module 1: Blockchain Basics",
-        topics: ["Bitcoin & Ethereum", "Wallets & Security", "Understanding Gas Fees"],
-        videoID: "Yb6825iv0Vk",
-        ai_prompt: "Act as a crypto educator. Explain blockchain fundamentals including how Bitcoin and Ethereum work, wallet security best practices, and how to avoid common scams.",
-        app_links: [
-          { id: "1", app_name: "Coinbase", app_url: "https://www.coinbase.com", icon_name: "Coins" }
-        ]
-      },
-      {
-        phaseTitle: "Module 2: Trading Strategies",
+        phaseTitle: "Trading Strategy",
         topics: ["Swing Trading", "Cycle Analysis", "Altcoin Selection"],
         videoID: "aaMFEk5Zuq4",
+        checklist: [
+          "Setup Wallet",
+          "Understand Market Cap",
+          "Risk Management 101",
+          "Create Trading Plan"
+        ],
         ai_prompt: "Act as a crypto trading analyst. Analyze this cryptocurrency: [TOKEN NAME]. Provide technical analysis, on-chain metrics, and a trading strategy with entry/exit points.",
         app_links: [
           { id: "1", app_name: "Binance", app_url: "https://www.binance.com", icon_name: "BarChart3" },
@@ -381,7 +413,7 @@ export const mockCourses: Course[] = [
     category: "Skill",
     description: "Master LLMs, RAG, and Context Engineering. The highest paying skill of 2026.",
     thumbnail_url: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop",
-    instructor: "AI Architect",
+    instructor: "Simplilearn",
     price: null,
     outcomes: [
       "Write prompts that get consistent, high-quality outputs",
@@ -391,10 +423,15 @@ export const mockCourses: Course[] = [
     ],
     duration: "5 hours",
     level: "Beginner",
+    tools: [
+      { name: "ChatGPT", url: "https://chat.openai.com/" },
+      { name: "Claude 3", url: "https://claude.ai/" }
+    ],
     stats: {
       market: "High Demand",
       growth: "400%",
-      success_rate: "Top 1%"
+      success_rate: "Top 1%",
+      avg_income: "$9k/mo"
     },
     hall_of_fame: [
       { 
@@ -424,26 +461,94 @@ export const mockCourses: Course[] = [
     ],
     curriculum: [
       {
-        phaseTitle: "Basics: Talking to Machines",
-        topics: ["Zero-shot vs Few-shot", "Context Windows", "Token Optimization"],
-        videoID: "_ZvnD73m40o",
+        phaseTitle: "Mastering LLMs",
+        topics: ["Zero-shot vs Few-shot", "Context Windows", "Chain of Thought"],
+        videoID: "BUdwDOLQVWc",
+        checklist: [
+          "Zero-Shot Prompting",
+          "Chain of Thought",
+          "Building Custom GPTs",
+          "Prompt Templates Library"
+        ],
         ai_prompt: "Act as a prompt engineering instructor. Explain the fundamentals of prompt engineering including zero-shot, few-shot, and chain-of-thought prompting techniques.",
         app_links: [
-          { id: "1", app_name: "ChatGPT", app_url: "https://chat.openai.com", icon_name: "Bot" }
-        ]
-      },
-      {
-        phaseTitle: "Advanced: RAG & Agents",
-        topics: ["Building AI Agents", "Chain of Thought", "RAG Pipelines"],
-        videoID: "BUdwDOLQVWc",
-        ai_prompt: "Act as an AI systems architect. Help me design a RAG pipeline for this use case: [YOUR USE CASE]. Include vector database selection, chunking strategy, and retrieval optimization.",
-        app_links: [
-          { id: "1", app_name: "Claude", app_url: "https://claude.ai", icon_name: "Bot" },
-          { id: "2", app_name: "Perplexity", app_url: "https://perplexity.ai", icon_name: "Search" }
+          { id: "1", app_name: "ChatGPT", app_url: "https://chat.openai.com", icon_name: "Bot" },
+          { id: "2", app_name: "Claude", app_url: "https://claude.ai", icon_name: "Bot" }
         ]
       }
     ],
     created_at: "2024-02-10"
+  },
+  {
+    id: "admanagement",
+    title: "Meta & TikTok Ads Manager",
+    category: "Skill",
+    description: "The only Facebook Ads tutorial you need for 2025 ROI.",
+    thumbnail_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
+    instructor: "Santrel Media",
+    price: null,
+    outcomes: [
+      "Set up and optimize Facebook Ads campaigns",
+      "Master Google Ads for search and display",
+      "Create viral TikTok ad creatives",
+      "Scale campaigns to $10k+/day profitably"
+    ],
+    duration: "10 hours",
+    level: "Intermediate",
+    tools: [
+      { name: "Meta Ads Manager", url: "https://adsmanager.facebook.com/" },
+      { name: "Canva", url: "https://www.canva.com/" }
+    ],
+    stats: {
+      market: "$700B",
+      growth: "15%",
+      success_rate: "High",
+      avg_income: "$8k/mo"
+    },
+    hall_of_fame: [
+      { 
+        name: "Gary Vaynerchuk", 
+        income: "$200M+", 
+        rank: 1,
+        bio: "CEO of VaynerMedia. Pioneer of social media marketing and personal branding.",
+        sources: ["Agency", "Speaking", "Investments"],
+        avatar_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop"
+      },
+      { 
+        name: "Top Media Buyers", 
+        income: "$50k/mo", 
+        rank: 2,
+        bio: "Elite performance marketers managing millions in ad spend for e-commerce brands.",
+        sources: ["Media Buying", "E-commerce"],
+        avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+      },
+      { 
+        name: "Agency Owners", 
+        income: "$15k/mo", 
+        rank: 3,
+        bio: "Digital marketing agency founders specializing in paid acquisition.",
+        sources: ["Agency", "Consulting"],
+        avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
+      }
+    ],
+    curriculum: [
+      {
+        phaseTitle: "Facebook Ads Setup",
+        topics: ["Platform Overview", "Pixel Setup", "Audience Building"],
+        videoID: "jGyo2BJYg3A",
+        checklist: [
+          "Install Pixel",
+          "Verify Domain",
+          "Create CBO Campaign",
+          "Setup Custom Audiences"
+        ],
+        ai_prompt: "Act as a Facebook Ads specialist. Help me set up a campaign for this product/service: [YOUR OFFER]. Include audience targeting, ad creative concepts, and budget recommendations.",
+        app_links: [
+          { id: "1", app_name: "Meta Ads", app_url: "https://facebook.com/business", icon_name: "TrendingUp" }
+        ]
+      }
+    ],
+    created_at: "2024-03-01"
   },
   {
     id: "aicontent",
@@ -461,6 +566,10 @@ export const mockCourses: Course[] = [
     ],
     duration: "5 hours",
     level: "Beginner",
+    tools: [
+      { name: "Opus Clip", url: "https://opus.pro/" },
+      { name: "CapCut", url: "https://capcut.com/" }
+    ],
     stats: {
       market: "Creator Econ",
       growth: "Exp",
@@ -497,6 +606,12 @@ export const mockCourses: Course[] = [
         phaseTitle: "Phase 1: Faceless Channels",
         topics: ["Niche Selection", "AI Voiceovers", "Script Templates"],
         videoID: "VwedJBqdUIs",
+        checklist: [
+          "Choose Profitable Niche",
+          "Setup AI Voiceover Tool",
+          "Create Script Template",
+          "Plan Content Calendar"
+        ],
         ai_prompt: "Act as a YouTube strategist. Help me create a faceless channel strategy for this niche: [YOUR NICHE]. Include content ideas, AI tools to use, and monetization timeline.",
         app_links: [
           { id: "1", app_name: "Opus Clip", app_url: "https://opus.pro", icon_name: "Palette" }
@@ -506,6 +621,12 @@ export const mockCourses: Course[] = [
         phaseTitle: "Phase 2: Viral Scripting",
         topics: ["Hook Strategy", "Retention Editing", "Thumbnail Psychology"],
         videoID: "P1LwA7l7F-I",
+        checklist: [
+          "Write 10 Hook Variations",
+          "Create Retention Graph",
+          "Design Click-Worthy Thumbnails",
+          "A/B Test Titles"
+        ],
         ai_prompt: "Act as a viral content expert. Write a script for this video topic: [YOUR TOPIC]. Include a hook that stops scrolling, retention peaks, and a strong CTA.",
         app_links: [
           { id: "1", app_name: "CapCut", app_url: "https://capcut.com", icon_name: "Palette" }
@@ -530,6 +651,10 @@ export const mockCourses: Course[] = [
     ],
     duration: "6 hours",
     level: "Intermediate",
+    tools: [
+      { name: "Fiverr", url: "https://fiverr.com/" },
+      { name: "Upwork", url: "https://upwork.com/" }
+    ],
     stats: {
       market: "$300B Gig Econ",
       growth: "20%",
@@ -566,6 +691,12 @@ export const mockCourses: Course[] = [
         phaseTitle: "Module 1: Service Selection",
         topics: ["High-Margin Services", "Market Research", "Pricing Strategy"],
         videoID: "5o1CC0e8nQ8",
+        checklist: [
+          "Research High-Demand Services",
+          "Calculate Profit Margins",
+          "Setup Pricing Tiers",
+          "Create Service Packages"
+        ],
         ai_prompt: "Act as a service business strategist. Analyze this service niche: [YOUR NICHE]. Evaluate demand, competition, pricing potential, and suggest 5 service offerings.",
         app_links: [
           { id: "1", app_name: "Fiverr", app_url: "https://fiverr.com", icon_name: "Briefcase" }
@@ -575,84 +706,20 @@ export const mockCourses: Course[] = [
         phaseTitle: "Module 2: Building Your Team",
         topics: ["Finding Freelancers", "Quality Control", "SOPs & Automation"],
         videoID: "KC4cdxyiTIQ",
+        checklist: [
+          "Post Job on Upwork",
+          "Interview 5 Freelancers",
+          "Create Quality Checklist",
+          "Document Delivery Process"
+        ],
         ai_prompt: "Act as an operations manager. Help me create SOPs for this service: [YOUR SERVICE]. Include quality control checklists, client communication templates, and delivery processes.",
         app_links: [
-          { id: "1", app_name: "Upwork", app_url: "https://upwork.com", icon_name: "Users" },
+          { id: "1", app_name: "Upwork", app_url: "https://upwork.com", icon_name: "Briefcase" },
           { id: "2", app_name: "Notion", app_url: "https://notion.so", icon_name: "FileText" }
         ]
       }
     ],
     created_at: "2024-02-20"
-  },
-  {
-    id: "admanagement",
-    title: "Facebook & Meta Ads Mastery",
-    category: "Skill",
-    description: "The only Facebook Ads tutorial you need for 2025 ROI.",
-    thumbnail_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    instructor: "Neil Patel",
-    price: null,
-    outcomes: [
-      "Set up and optimize Facebook Ads campaigns",
-      "Master Google Ads for search and display",
-      "Create viral TikTok ad creatives",
-      "Scale campaigns to $10k+/day profitably"
-    ],
-    duration: "10 hours",
-    level: "Intermediate",
-    stats: {
-      market: "$700B Ad Spend",
-      growth: "15%",
-      success_rate: "High"
-    },
-    hall_of_fame: [
-      { 
-        name: "Gary Vaynerchuk", 
-        income: "$200M+", 
-        rank: 1,
-        bio: "CEO of VaynerMedia. Pioneer of social media marketing and personal branding.",
-        sources: ["Agency", "Speaking", "Investments"],
-        avatar_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop"
-      },
-      { 
-        name: "Top Media Buyers", 
-        income: "$50k/mo", 
-        rank: 2,
-        bio: "Elite performance marketers managing millions in ad spend for e-commerce brands.",
-        sources: ["Media Buying", "E-commerce"],
-        avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
-      },
-      { 
-        name: "Agency Owners", 
-        income: "$15k/mo", 
-        rank: 3,
-        bio: "Digital marketing agency founders specializing in paid acquisition.",
-        sources: ["Agency", "Consulting"],
-        avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
-      }
-    ],
-    curriculum: [
-      {
-        phaseTitle: "Module 1: Ad Fundamentals",
-        topics: ["Platform Overview", "Pixel Setup", "Audience Building"],
-        videoID: "mZWJCjhZanQ",
-        ai_prompt: "Act as a Facebook Ads specialist. Help me set up a campaign for this product/service: [YOUR OFFER]. Include audience targeting, ad creative concepts, and budget recommendations.",
-        app_links: [
-          { id: "1", app_name: "Meta Ads", app_url: "https://facebook.com/business", icon_name: "TrendingUp" }
-        ]
-      },
-      {
-        phaseTitle: "Module 2: Scaling & Optimization",
-        topics: ["Testing Frameworks", "Scaling Strategies", "Creative Iteration"],
-        videoID: "KC4cdxyiTIQ",
-        ai_prompt: "Act as a growth marketer. Analyze my ad campaign metrics: [PASTE METRICS]. Identify optimization opportunities and provide a scaling strategy.",
-        app_links: [
-          { id: "1", app_name: "TikTok Ads", app_url: "https://ads.tiktok.com", icon_name: "TrendingUp" },
-          { id: "2", app_name: "Google Ads", app_url: "https://ads.google.com", icon_name: "Search" }
-        ]
-      }
-    ],
-    created_at: "2024-03-01"
   }
 ];
 
