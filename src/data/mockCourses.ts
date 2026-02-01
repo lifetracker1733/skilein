@@ -63,11 +63,11 @@ export const getYouTubeThumbnail = (videoID: string) =>
 export const mockCourses: Course[] = [
   {
     id: "dropshipping",
-    title: "Dropshipping: The 2026 Blueprint",
+    title: "The Winning Store",
     category: "Skill",
     description: "Complete A-Z guide: Finding products, Shopify setup, and viral marketing.",
     thumbnail_url: getYouTubeThumbnail("KC4cdxyiTIQ"),
-    instructor: "Santrel Media",
+    instructor: "Jordan Welch",
     price: null,
     outcomes: [
       "Find winning products before they trend",
@@ -167,11 +167,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "vibecoding",
-    title: "Coding with AI (Full Course)",
+    title: "No-Code Blueprint",
     category: "Skill",
     description: "How to build software without knowing how to code using AI tools.",
     thumbnail_url: getYouTubeThumbnail("bTpQ93E-dKE"),
-    instructor: "FreeCodeCamp",
+    instructor: "Brett Malinowski",
     price: null,
     outcomes: [
       "Build full-stack web applications with AI",
@@ -255,11 +255,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "stock",
-    title: "Stock Market For Beginners",
+    title: "Art of the Deal",
     category: "Finance",
     description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
     thumbnail_url: getYouTubeThumbnail("8IjJ7DkwJ6U"),
-    instructor: "Trading 212",
+    instructor: "Luke Alexander",
     price: null,
     outcomes: [
       "Read and interpret stock charts like a pro",
@@ -341,11 +341,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "crypto",
-    title: "Crypto Trading 101",
+    title: "Digital Launchpad",
     category: "Crypto",
     description: "Technical analysis and risk management for the 2025 bull run.",
     thumbnail_url: getYouTubeThumbnail("1YyAzVmP9xQ"),
-    instructor: "Binance Academy",
+    instructor: "Iman Gadzhi",
     price: null,
     outcomes: [
       "Set up secure hot and cold wallets",
@@ -412,76 +412,146 @@ export const mockCourses: Course[] = [
     created_at: "2024-02-15"
   },
   {
-    id: "prompt",
-    title: "Prompt Engineering Masterclass",
+    id: "webdesign",
+    title: "Web Design Fast Track",
     category: "Skill",
-    description: "Master LLMs, RAG, and Context Engineering. The highest paying skill of 2026.",
-    thumbnail_url: getYouTubeThumbnail("ME-hG955Ovo"),
-    instructor: "Simplilearn",
+    description: "Learn Figma and modern web design principles to build stunning websites.",
+    thumbnail_url: getYouTubeThumbnail("B-ytMSuwbf8"),
+    instructor: "Sam Crawford",
     price: null,
     outcomes: [
-      "Write prompts that get consistent, high-quality outputs",
-      "Chain prompts for complex multi-step tasks",
-      "Build AI-powered workflows and automations",
-      "Create custom GPTs and AI agents"
+      "Master Figma from zero to hero",
+      "Create professional UI/UX designs",
+      "Build responsive layouts",
+      "Launch your design freelance career"
     ],
     duration: "5 hours",
     level: "Beginner",
     tools: [
-      { name: "ChatGPT", url: "https://chat.openai.com/", icon: "bot" },
-      { name: "Claude 3", url: "https://claude.ai/", icon: "brain" }
+      { name: "Figma", url: "https://figma.com/", icon: "layout" },
+      { name: "Webflow", url: "https://webflow.com/", icon: "globe" }
     ],
     stats: {
       market: "High Demand",
-      growth: "400%",
+      growth: "25%",
       success_rate: "Top 1%",
-      avg_income: "$9k/mo"
+      avg_income: "$12k/mo"
     },
     hall_of_fame: [
       { 
-        name: "Riley Goodside", 
-        income: "$300k/yr", 
+        name: "Ran Segall", 
+        income: "$500k/yr", 
         rank: 1,
-        bio: "Staff Prompt Engineer at Scale AI. Pioneer of prompt injection research and LLM optimization.",
-        sources: ["LLM Optimization", "Research"],
+        bio: "Founder of Flux Academy. Taught thousands to become professional web designers.",
+        sources: ["Education", "Design Agency"],
         avatar_url: "https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
       },
       { 
-        name: "AI Architects", 
-        income: "$20k/mo", 
+        name: "Design Freelancers", 
+        income: "$15k/mo", 
         rank: 2,
-        bio: "Elite prompt engineers building enterprise AI solutions and custom agent systems.",
-        sources: ["Enterprise AI", "Consulting"],
+        bio: "Top Figma designers charging premium rates for UI/UX work.",
+        sources: ["Freelancing", "Figma"],
         avatar_url: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=200&h=200&fit=crop"
       },
       { 
-        name: "Enterprise Prompters", 
-        income: "$15k/mo", 
+        name: "Agency Designers", 
+        income: "$8k/mo", 
         rank: 3,
-        bio: "Corporate AI specialists optimizing workflows and building internal AI tools.",
-        sources: ["Automation", "Workflows"],
+        bio: "Design professionals working at top agencies and startups.",
+        sources: ["Agency", "Startups"],
         avatar_url: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
       }
     ],
     curriculum: [
       {
-        phaseTitle: "Mastering LLMs",
-        topics: ["Zero-shot vs Few-shot", "Context Windows", "Chain of Thought"],
-        videoID: "ME-hG955Ovo",
+        phaseTitle: "Figma Fundamentals",
+        topics: ["Interface Overview", "Components & Variants", "Auto Layout"],
+        videoID: "B-ytMSuwbf8",
         checklist: [
-          "Zero-Shot Prompting",
-          "Chain of Thought",
-          "Building Custom GPTs",
-          "Prompt Templates Library"
+          "Create Figma Account",
+          "Learn Auto Layout",
+          "Build Component Library",
+          "Design First Landing Page"
         ],
-        ai_prompt: "Act as a prompt engineering instructor. Explain the fundamentals of prompt engineering including zero-shot, few-shot, and chain-of-thought prompting techniques.",
+        ai_prompt: "Act as a UI/UX designer. Help me design a landing page for this product: [YOUR PRODUCT]. Include layout suggestions, color schemes, and typography recommendations.",
         app_links: [
-          { id: "1", app_name: "ChatGPT", app_url: "https://chat.openai.com", icon_name: "Bot" },
-          { id: "2", app_name: "Claude", app_url: "https://claude.ai", icon_name: "Bot" }
+          { id: "1", app_name: "Figma", app_url: "https://figma.com", icon_name: "Layout" }
         ]
       }
     ],
     created_at: "2024-02-10"
+  },
+  {
+    id: "copywriting",
+    title: "Pen to Profit",
+    category: "Skill",
+    description: "Master copywriting and persuasion to print money with words.",
+    thumbnail_url: getYouTubeThumbnail("6pYuoZ4qMlk"),
+    instructor: "Luis Berger",
+    price: null,
+    outcomes: [
+      "Write headlines that stop the scroll",
+      "Master persuasion psychology",
+      "Create high-converting sales pages",
+      "Land $5k+ copywriting clients"
+    ],
+    duration: "6 hours",
+    level: "Beginner",
+    tools: [
+      { name: "Google Docs", url: "https://docs.google.com/", icon: "file-text" },
+      { name: "Copy.ai", url: "https://copy.ai/", icon: "bot" }
+    ],
+    stats: {
+      market: "$700B",
+      growth: "15%",
+      success_rate: "High",
+      avg_income: "$10k/mo"
+    },
+    hall_of_fame: [
+      { 
+        name: "Dan Kennedy", 
+        income: "$10M+", 
+        rank: 1,
+        bio: "The Godfather of Direct Response. Legendary copywriter and marketing consultant.",
+        sources: ["Direct Response", "Consulting"],
+        avatar_url: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200&h=200&fit=crop"
+      },
+      { 
+        name: "Top Copywriters", 
+        income: "$30k/mo", 
+        rank: 2,
+        bio: "Elite freelance copywriters commanding premium rates for sales copy.",
+        sources: ["Freelancing", "Sales Copy"],
+        avatar_url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+      },
+      { 
+        name: "Content Writers", 
+        income: "$8k/mo", 
+        rank: 3,
+        bio: "Professional writers specializing in conversion-focused content.",
+        sources: ["Content", "SEO"],
+        avatar_url: "https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=200&h=200&fit=crop"
+      }
+    ],
+    curriculum: [
+      {
+        phaseTitle: "Copywriting Fundamentals",
+        topics: ["AIDA Framework", "Headline Formulas", "Persuasion Psychology"],
+        videoID: "6pYuoZ4qMlk",
+        checklist: [
+          "Study AIDA Framework",
+          "Write 50 Headlines",
+          "Analyze Top Sales Pages",
+          "Create First Sales Letter"
+        ],
+        ai_prompt: "Act as a direct response copywriter. Write a sales page for this product: [YOUR PRODUCT]. Include headline, body copy, social proof, and CTA sections.",
+        app_links: [
+          { id: "1", app_name: "Google Docs", app_url: "https://docs.google.com", icon_name: "FileText" }
+        ]
+      }
+    ],
+    created_at: "2024-02-25"
   },
   {
     id: "admanagement",
@@ -556,11 +626,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "content",
-    title: "Content Creation & Virality",
+    title: "Six Figure Sales Rep",
     category: "Skill",
     description: "9 AI Skills that will make you rich in 2025 (Content Focus).",
     thumbnail_url: getYouTubeThumbnail("4vT35gT8jGQ"),
-    instructor: "Think Media",
+    instructor: "Paul Daley",
     price: null,
     outcomes: [
       "Generate video scripts that hook viewers in 3 seconds",
