@@ -59,11 +59,11 @@ export interface Course {
 export const mockCourses: Course[] = [
   {
     id: "dropshipping",
-    title: "Dropshipping: The Winning Store",
+    title: "Dropshipping: The Winning Store 2025",
     category: "Skill",
-    description: "The only updated 2025 guide you need. 8 Hours of zero-fluff strategy.",
+    description: "Complete A-Z guide: Finding products, Shopify setup, and ads.",
     thumbnail_url: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=600&fit=crop",
-    instructor: "The Ecom King",
+    instructor: "Santrel Media",
     price: null,
     outcomes: [
       "Find winning products before they trend",
@@ -97,9 +97,9 @@ export const mockCourses: Course[] = [
         id: "dropshipping-1",
         course_id: "dropshipping",
         title: "The Complete Dropshipping Masterclass 2025",
-        video_url: "https://www.youtube.com/embed/vbgJ5lGU3wU",
-        video_id: "vbgJ5lGU3wU",
-        description: "The only updated 2025 guide you need. 8 Hours of zero-fluff strategy from finding winning products to scaling with ads.",
+        video_url: "https://www.youtube.com/embed/KC4cdxyiTIQ",
+        video_id: "KC4cdxyiTIQ",
+        description: "Complete A-Z guide: Finding products, Shopify setup, and ads.",
         ai_prompt: "Act as an e-commerce strategist specializing in dropshipping. Analyze this product niche: [YOUR NICHE]. Provide market size, competition analysis, profit margin potential, and suggest 5 winning product ideas with supplier recommendations.",
         duration: "8 hours",
         order: 1,
@@ -114,9 +114,9 @@ export const mockCourses: Course[] = [
   },
   {
     id: "stock",
-    title: "Stock Market Mastery 2025",
+    title: "Stock Market Mastery (2025 Edition)",
     category: "Finance",
-    description: "From beginner to portfolio manager. Understanding ETFs, Index Funds, and Risk.",
+    description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
     thumbnail_url: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?w=800&h=600&fit=crop",
     instructor: "Humphrey Yang",
     price: null,
@@ -135,8 +135,8 @@ export const mockCourses: Course[] = [
     },
     hall_of_fame: [
       { name: "Warren Buffett", income: "$4B/yr", rank: 1 },
-      { name: "Peter Lynch", income: "$500M+", rank: 2 },
-      { name: "Retail Legends", income: "$50k/mo", rank: 3 }
+      { name: "R. Jhunjhunwala", income: "Legacy", rank: 2 },
+      { name: "Peter Lynch", income: "$500M+", rank: 3 }
     ],
     lessons: [
       {
@@ -145,7 +145,7 @@ export const mockCourses: Course[] = [
         title: "Stock Market Complete Guide",
         video_url: "https://www.youtube.com/embed/bb6_M_srMBk",
         video_id: "bb6_M_srMBk",
-        description: "Learn everything about the stock market from beginner to advanced strategies.",
+        description: "The ultimate beginner guide to investing, ETFs, and market psychology.",
         ai_prompt: "Act as a senior stock market analyst. I want you to analyze these stocks: [PASTE YOUR TICKERS]. Provide actionable insights on valuation, risk levels, and specific buy/sell recommendations with entry/exit points.",
         duration: "6 hours",
         order: 1,
@@ -160,11 +160,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "vibecoding",
-    title: "Vibe Coding: Cursor AI Masterclass",
+    title: "Vibe Coding: Build Apps with AI",
     category: "Skill",
-    description: "Build Enterprise-grade apps without writing code line-by-line. The future of dev.",
+    description: "How to build software without knowing how to code using AI tools.",
     thumbnail_url: "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=800&h=600&fit=crop",
-    instructor: "Codebasics",
+    instructor: "Greg Isenberg",
     price: null,
     outcomes: [
       "Build full-stack web applications with AI",
@@ -188,10 +188,10 @@ export const mockCourses: Course[] = [
       {
         id: "vibecoding-1",
         course_id: "vibecoding",
-        title: "Cursor AI Complete Tutorial",
-        video_url: "https://www.youtube.com/embed/5tvsM6l7TiU",
-        video_id: "5tvsM6l7TiU",
-        description: "Master Cursor AI to build enterprise-grade applications faster than ever before.",
+        title: "Build Apps with AI",
+        video_url: "https://www.youtube.com/embed/yk9nX8i3i8Q",
+        video_id: "yk9nX8i3i8Q",
+        description: "How to build software without knowing how to code using AI tools.",
         ai_prompt: "Act as a senior software architect. Help me design the architecture for this app idea: [YOUR IDEA]. Include tech stack recommendations, database schema, API endpoints, and deployment strategy.",
         duration: "4 hours",
         order: 1,
@@ -252,11 +252,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "crypto",
-    title: "Crypto Trading Blueprint",
+    title: "Crypto Trading for Beginners 2025",
     category: "Crypto",
-    description: "Technical Analysis, Risk Management, and Web3 trends for 2026.",
+    description: "Technical analysis and risk management for the 2025 bull run.",
     thumbnail_url: "https://images.unsplash.com/photo-1621761191319-c6fb62004040?w=800&h=600&fit=crop",
-    instructor: "The Trading Geek",
+    instructor: "Craig Percoco",
     price: null,
     outcomes: [
       "Set up secure hot and cold wallets",
@@ -267,8 +267,8 @@ export const mockCourses: Course[] = [
     duration: "7 hours",
     level: "Intermediate",
     stats: {
-      market: "$18 Billion (2026)",
-      growth: "14.5%",
+      market: "$3 Trillion Cap",
+      growth: "Volatile",
       success_rate: "High Risk"
     },
     hall_of_fame: [
@@ -281,9 +281,9 @@ export const mockCourses: Course[] = [
         id: "crypto-1",
         course_id: "crypto",
         title: "Crypto Trading Masterclass",
-        video_url: "https://www.youtube.com/embed/UYnCQEHx7ZU",
-        video_id: "UYnCQEHx7ZU",
-        description: "Complete guide to cryptocurrency trading with technical analysis and risk management.",
+        video_url: "https://www.youtube.com/embed/aaMFEk5Zuq4",
+        video_id: "aaMFEk5Zuq4",
+        description: "Technical analysis and risk management for the 2025 bull run.",
         ai_prompt: "Act as a cryptocurrency trading expert. Analyze this coin/token: [PASTE TICKER]. Provide technical analysis, support/resistance levels, and a trading strategy with entry/exit points.",
         duration: "7 hours",
         order: 1,
@@ -297,46 +297,46 @@ export const mockCourses: Course[] = [
     created_at: "2024-02-15"
   },
   {
-    id: "dropcoursing",
-    title: "Drop Coursing: Sell Digital Products",
+    id: "dropservicing",
+    title: "Drop Servicing: International Guide",
     category: "Skill",
-    description: "How to package knowledge and sell it without inventory.",
+    description: "How to start International Drop Servicing in 2025.",
     thumbnail_url: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=800&h=600&fit=crop",
-    instructor: "Digital Era",
+    instructor: "Alok Badatia",
     price: null,
     outcomes: [
-      "Identify profitable course topics in any niche",
-      "Structure engaging curriculum that delivers results",
-      "Set up automated course delivery systems",
-      "Build a launch strategy for 6-figure course sales"
+      "Identify profitable service niches",
+      "Find and manage reliable freelancers",
+      "Set up automated service delivery",
+      "Build a 6-figure service agency"
     ],
     duration: "6 hours",
     level: "Intermediate",
     stats: {
-      market: "$300B E-Learning",
+      market: "$300B Gig Econ",
       growth: "20%",
       success_rate: "High Margin"
     },
     hall_of_fame: [
       { name: "Iman Gadzhi", income: "$30M/yr", rank: 1 },
-      { name: "Skillshare Top", income: "$100k/yr", rank: 2 },
-      { name: "Course Creators", income: "$50k/mo", rank: 3 }
+      { name: "Agency Owners", income: "$100k/yr", rank: 2 },
+      { name: "Service Pros", income: "$50k/mo", rank: 3 }
     ],
     lessons: [
       {
-        id: "dropcoursing-1",
-        course_id: "dropcoursing",
-        title: "Digital Product Empire",
-        video_url: "https://www.youtube.com/embed/vbgJ5lGU3wU",
-        video_id: "vbgJ5lGU3wU",
-        description: "Learn how to create and sell digital products without any inventory.",
-        ai_prompt: "Act as a course creation strategist. Analyze this niche: [YOUR NICHE]. Evaluate market demand, competition, pricing potential, and suggest 5 course topic ideas with monetization strategies.",
+        id: "dropservicing-1",
+        course_id: "dropservicing",
+        title: "Drop Servicing Complete Guide",
+        video_url: "https://www.youtube.com/embed/5o1CC0e8nQ8",
+        video_id: "5o1CC0e8nQ8",
+        description: "How to start International Drop Servicing in 2025.",
+        ai_prompt: "Act as a service business strategist. Analyze this service niche: [YOUR NICHE]. Evaluate demand, competition, pricing potential, and suggest 5 service offerings with fulfillment strategies.",
         duration: "6 hours",
         order: 1,
         app_links: [
-          { id: "1", app_name: "Teachable", app_url: "https://teachable.com", icon_name: "FileText" },
-          { id: "2", app_name: "Notion", app_url: "https://notion.so", icon_name: "FileText" },
-          { id: "3", app_name: "Loom", app_url: "https://loom.com", icon_name: "Palette" }
+          { id: "1", app_name: "Fiverr", app_url: "https://fiverr.com", icon_name: "Briefcase" },
+          { id: "2", app_name: "Upwork", app_url: "https://upwork.com", icon_name: "Users" },
+          { id: "3", app_name: "Notion", app_url: "https://notion.so", icon_name: "FileText" }
         ]
       }
     ],
@@ -344,11 +344,11 @@ export const mockCourses: Course[] = [
   },
   {
     id: "admanagement",
-    title: "Meta & TikTok Ads Manager",
+    title: "Facebook & Meta Ads Mastery",
     category: "Skill",
-    description: "Run profitable campaigns on FB, IG, and TikTok. The engine of e-commerce.",
+    description: "The only Facebook Ads tutorial you need for 2025 ROI.",
     thumbnail_url: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&h=600&fit=crop",
-    instructor: "Santrel Media",
+    instructor: "Neil Patel",
     price: null,
     outcomes: [
       "Set up and optimize Facebook Ads campaigns",
@@ -372,10 +372,10 @@ export const mockCourses: Course[] = [
       {
         id: "admanagement-1",
         course_id: "admanagement",
-        title: "Meta & TikTok Ads Complete Guide",
-        video_url: "https://www.youtube.com/embed/jGyo2BJYg3A",
-        video_id: "jGyo2BJYg3A",
-        description: "Master Facebook, Instagram, and TikTok advertising from zero to scaling.",
+        title: "Facebook & Meta Ads Complete Guide",
+        video_url: "https://www.youtube.com/embed/mZWJCjhZanQ",
+        video_id: "mZWJCjhZanQ",
+        description: "The only Facebook Ads tutorial you need for 2025 ROI.",
         ai_prompt: "Act as a performance marketing expert. Analyze my ad campaign data: [PASTE METRICS]. Identify optimization opportunities, suggest audience refinements, and provide creative testing strategies.",
         duration: "10 hours",
         order: 1,
@@ -392,9 +392,9 @@ export const mockCourses: Course[] = [
     id: "aicontent",
     title: "AI Content Creation & Virality",
     category: "Skill",
-    description: "Automate faceless channels, viral scripts, and AI voiceovers.",
+    description: "9 AI Skills that will make you rich in 2025 (Content Focus).",
     thumbnail_url: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=800&h=600&fit=crop",
-    instructor: "Mr Hassnain",
+    instructor: "Silicon Valley Girl",
     price: null,
     outcomes: [
       "Generate video scripts that hook viewers in 3 seconds",
@@ -419,9 +419,9 @@ export const mockCourses: Course[] = [
         id: "aicontent-1",
         course_id: "aicontent",
         title: "AI Content Creation Masterclass",
-        video_url: "https://www.youtube.com/embed/VwedJBqdUIs",
-        video_id: "VwedJBqdUIs",
-        description: "Learn to create viral content at scale using AI tools and automation.",
+        video_url: "https://www.youtube.com/embed/ELuBhd-PgDg",
+        video_id: "ELuBhd-PgDg",
+        description: "9 AI Skills that will make you rich in 2025 (Content Focus).",
         ai_prompt: "Act as a viral content strategist. Create a 30-day content calendar for this niche: [YOUR NICHE]. Include hook ideas, content angles, and optimal posting times for each platform.",
         duration: "5 hours",
         order: 1,
