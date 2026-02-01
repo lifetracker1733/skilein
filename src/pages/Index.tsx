@@ -6,25 +6,19 @@ import Footer from "@/components/Footer";
 import CourseCard from "@/components/CourseCard";
 import HeroCard from "@/components/HeroCard";
 import { mockCourses, type Category } from "@/data/mockCourses";
-
 type FilterOption = Category | "All";
-
 const categories: FilterOption[] = ["All", "Finance", "Web3", "Skill", "Crypto"];
-
 const Index = () => {
   const [selectedCategory, setSelectedCategory] = useState<FilterOption>("All");
-
   const filteredCourses = useMemo(() => {
     if (selectedCategory === "All") return mockCourses;
-    return mockCourses.filter((course) => course.category === selectedCategory);
+    return mockCourses.filter(course => course.category === selectedCategory);
   }, [selectedCategory]);
-
-  return (
-    <div className="min-h-screen">
+  return <div className="min-h-screen">
       <Navbar />
 
       {/* Hero Section - The "Hook" */}
-      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden border-accent">
         <div className="max-w-7xl mx-auto px-6 w-full">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             {/* Left Side - Text */}
@@ -38,18 +32,11 @@ const Index = () => {
                 Practical education for the digital age. Master skills that generate real income.
               </p>
               <div className="flex flex-wrap gap-4">
-                <Button 
-                  size="lg" 
-                  className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-6 font-semibold text-base group"
-                >
+                <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-8 py-6 font-semibold text-base group">
                   Start Learning
                   <ArrowRight className="ml-2 h-4 w-4 group-hover:translate-x-1 transition-transform" />
                 </Button>
-                <Button 
-                  size="lg" 
-                  variant="outline" 
-                  className="glass border-white/10 text-white hover:bg-white/10 rounded-full px-8 py-6 font-semibold text-base"
-                >
+                <Button size="lg" variant="outline" className="glass border-white/10 text-white hover:bg-white/10 rounded-full px-8 py-6 font-semibold text-base">
                   View Courses
                 </Button>
               </div>
@@ -59,26 +46,18 @@ const Index = () => {
             <div className="relative h-[500px] hidden lg:block">
               <div className="absolute inset-0 fade-right">
                 {/* Staggered floating cards */}
-                <HeroCard 
-                  course={mockCourses[0]} 
-                  className="absolute top-0 left-0 animate-float"
-                  style={{ animationDelay: "0s" }}
-                />
-                <HeroCard 
-                  course={mockCourses[1]} 
-                  className="absolute top-20 left-48 animate-float"
-                  style={{ animationDelay: "1s" }}
-                />
-                <HeroCard 
-                  course={mockCourses[2]} 
-                  className="absolute top-40 left-8 animate-float"
-                  style={{ animationDelay: "2s" }}
-                />
-                <HeroCard 
-                  course={mockCourses[3]} 
-                  className="absolute top-60 left-56 animate-float opacity-60"
-                  style={{ animationDelay: "0.5s" }}
-                />
+                <HeroCard course={mockCourses[0]} className="absolute top-0 left-0 animate-float" style={{
+                animationDelay: "0s"
+              }} />
+                <HeroCard course={mockCourses[1]} className="absolute top-20 left-48 animate-float" style={{
+                animationDelay: "1s"
+              }} />
+                <HeroCard course={mockCourses[2]} className="absolute top-40 left-8 animate-float" style={{
+                animationDelay: "2s"
+              }} />
+                <HeroCard course={mockCourses[3]} className="absolute top-60 left-56 animate-float opacity-60" style={{
+                animationDelay: "0.5s"
+              }} />
               </div>
               {/* Gradient fade on right edge */}
               <div className="absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-black to-transparent pointer-events-none" />
@@ -106,49 +85,28 @@ const Index = () => {
 
             {/* Category Filter Pills */}
             <div className="flex flex-wrap gap-2">
-              {categories.map((category) => (
-                <button
-                  key={category}
-                  onClick={() => setSelectedCategory(category)}
-                  className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${
-                    selectedCategory === category
-                      ? "bg-white text-black"
-                      : "glass text-white/70 hover:text-white hover:bg-white/10"
-                  }`}
-                >
+              {categories.map(category => <button key={category} onClick={() => setSelectedCategory(category)} className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-200 ${selectedCategory === category ? "bg-white text-black" : "glass text-white/70 hover:text-white hover:bg-white/10"}`}>
                   {category}
-                </button>
-              ))}
+                </button>)}
             </div>
           </div>
 
           {/* Bento Grid */}
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {filteredCourses.map((course, index) => (
-              <div 
-                key={course.id}
-                className={index === 0 ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : ""}
-              >
+            {filteredCourses.map((course, index) => <div key={course.id} className={index === 0 ? "md:col-span-2 lg:col-span-1 lg:row-span-2" : ""}>
                 <CourseCard course={course} featured={index === 0} />
-              </div>
-            ))}
+              </div>)}
           </div>
 
           {/* Empty State */}
-          {filteredCourses.length === 0 && (
-            <div className="text-center py-20">
+          {filteredCourses.length === 0 && <div className="text-center py-20">
               <p className="text-white/50 font-medium mb-4">
                 No courses in this category yet.
               </p>
-              <Button
-                variant="outline"
-                onClick={() => setSelectedCategory("All")}
-                className="glass border-white/10 text-white rounded-full"
-              >
+              <Button variant="outline" onClick={() => setSelectedCategory("All")} className="glass border-white/10 text-white rounded-full">
                 View all courses
               </Button>
-            </div>
-          )}
+            </div>}
         </div>
       </section>
 
@@ -163,10 +121,7 @@ const Index = () => {
           <p className="text-white/50 font-medium mb-8 text-lg">
             Join thousands of students building their income streams.
           </p>
-          <Button 
-            size="lg" 
-            className="bg-white text-black hover:bg-white/90 rounded-full px-10 py-6 font-semibold text-base"
-          >
+          <Button size="lg" className="bg-white text-black hover:bg-white/90 rounded-full px-10 py-6 font-semibold text-base">
             Get Started Free
             <ArrowRight className="ml-2 h-4 w-4" />
           </Button>
@@ -174,8 +129,6 @@ const Index = () => {
       </section>
 
       <Footer />
-    </div>
-  );
+    </div>;
 };
-
 export default Index;
