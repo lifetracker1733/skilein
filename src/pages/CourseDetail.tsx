@@ -1,13 +1,13 @@
 import { useParams, Link } from "react-router-dom";
 import { ArrowLeft, Clock, BarChart, CheckCircle, PlayCircle, ChevronRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AspectRatio } from "@/components/ui/aspect-ratio";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import SkileBox from "@/components/SkileBox";
 import CourseCard from "@/components/CourseCard";
 import ImpactDashboard from "@/components/ImpactDashboard";
 import HallOfFame from "@/components/HallOfFame";
+import YouTubePlayer from "@/components/YouTubePlayer";
 import { getCourseById, getRelatedCourses, type Category } from "@/data/mockCourses";
 
 const tagColors: Record<Category, string> = {
@@ -82,7 +82,7 @@ const CourseDetail = () => {
           </div>
 
           {/* Large Title */}
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-foreground tracking-tighter mb-6">
             {course.title}
           </h1>
 
@@ -98,21 +98,16 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* Video Player Section - Strict Mode */}
+      {/* Video Player Section - Strict Mode with YouTube Lock */}
       {currentLesson && (
         <section className="pb-8">
           <div className="max-w-4xl mx-auto px-6">
-            {/* Video Player - Full Width, Rounded, Strict Mode */}
-            <div className="overflow-hidden rounded-2xl glass border border-border mb-10">
-              <AspectRatio ratio={16 / 9}>
-                <iframe
-                  src={`${currentLesson.video_url}?rel=0&modestbranding=1&showinfo=0&autoplay=0`}
-                  title={currentLesson.title}
-                  allow="accelerometer; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowFullScreen
-                  className="h-full w-full"
-                />
-              </AspectRatio>
+            {/* Video Player with YouTube Lock */}
+            <div className="mb-10">
+              <YouTubePlayer 
+                videoId={currentLesson.video_id} 
+                title={currentLesson.title} 
+              />
             </div>
 
             {/* Lesson Info */}
@@ -182,17 +177,17 @@ const CourseDetail = () => {
         </div>
       </section>
 
-      {/* Impact Dashboard - Stats Grid */}
+      {/* Impact Dashboard - Stats Grid with course-specific data */}
       <section className="border-t border-border">
         <div className="max-w-4xl mx-auto px-6">
-          <ImpactDashboard />
+          <ImpactDashboard stats={course.stats} />
         </div>
       </section>
 
-      {/* Hall of Fame - Leaderboard */}
+      {/* Hall of Fame - Leaderboard with course-specific data */}
       <section>
         <div className="max-w-4xl mx-auto px-6">
-          <HallOfFame />
+          <HallOfFame entries={course.hall_of_fame} />
         </div>
       </section>
 

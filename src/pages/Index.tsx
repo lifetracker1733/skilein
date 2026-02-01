@@ -19,9 +19,15 @@ const Index = () => {
     return mockCourses.filter(course => course.category === selectedCategory);
   }, [selectedCategory]);
 
-  // Split courses for two marquee rows
-  const row1Courses = mockCourses.slice(0, 4);
-  const row2Courses = mockCourses.slice(4, 8);
+  // Split courses for two marquee rows (specified order)
+  // Row 1: Stock, Dropshipping, Vibe Coding, Prompt Engineering
+  // Row 2: Crypto, Drop Coursing, Ad Management, AI Content
+  const row1Courses = mockCourses.filter(c => 
+    ["stock", "dropshipping", "vibecoding", "prompt"].includes(c.id)
+  );
+  const row2Courses = mockCourses.filter(c => 
+    ["crypto", "dropcoursing", "admanagement", "aicontent"].includes(c.id)
+  );
 
   return (
     <div className="min-h-screen">
@@ -32,13 +38,12 @@ const Index = () => {
         <div className="max-w-7xl mx-auto px-6 w-full mb-12">
           {/* Text Content */}
           <div className="animate-fade-up text-center lg:text-left max-w-2xl mx-auto lg:mx-0">
-            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tight mb-6">
-              We're Changing<br />
-              How You<br />
-              <span className="text-foreground/40">Earn Forever.</span>
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold text-foreground leading-[1.1] tracking-tighter mb-6">
+              Master the<br />
+              Economy.
             </h1>
             <p className="text-lg text-foreground/50 mb-8 max-w-md font-medium mx-auto lg:mx-0">
-              Practical education for the digital age. Master skills that generate real income.
+              Real skills. Real income. Free for everyone.
             </p>
             <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               <Button size="lg" className="bg-primary text-primary-foreground hover:bg-primary/90 rounded-full px-8 py-6 font-semibold text-base group">
@@ -54,14 +59,14 @@ const Index = () => {
 
         {/* Infinite Scroll Marquee - Two Rows */}
         <div className="w-full space-y-5 overflow-hidden">
-          {/* Row 1 - Right to Left */}
+          {/* Row 1 - Right to Left (Stock, Dropshipping, Vibe Coding, Prompt) */}
           <Marquee direction="left" speed={35} pauseOnHover className="py-2">
             {row1Courses.map((course) => (
               <HeroCard key={course.id} course={course} className="shrink-0" />
             ))}
           </Marquee>
 
-          {/* Row 2 - Left to Right */}
+          {/* Row 2 - Left to Right (Crypto, Drop Coursing, Ad Management, AI Content) */}
           <Marquee direction="right" speed={40} pauseOnHover className="py-2">
             {row2Courses.map((course) => (
               <HeroCard key={course.id} course={course} className="shrink-0" />
@@ -79,7 +84,7 @@ const Index = () => {
           {/* Section Header */}
           <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
             <div>
-              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-2">
+              <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tighter mb-2">
                 Explore Courses
               </h2>
               <p className="text-foreground/50 font-medium">
@@ -133,7 +138,7 @@ const Index = () => {
         <div className="absolute inset-0 bg-gradient-to-b from-transparent via-accent/5 to-transparent pointer-events-none" />
         
         <div className="max-w-3xl mx-auto text-center relative z-10">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tight mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold text-foreground tracking-tighter mb-4">
             Ready to level up?
           </h2>
           <p className="text-foreground/50 font-medium mb-8 text-lg">
