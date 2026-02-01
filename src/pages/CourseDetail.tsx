@@ -162,6 +162,8 @@ const CourseDetail = () => {
                 <SkileBox 
                   prompt={currentPhase.ai_prompt || ""}
                   appLinks={currentPhase.app_links || []}
+                  checklist={currentPhase.checklist || []}
+                  tools={course.tools || []}
                 />
               </div>
               
