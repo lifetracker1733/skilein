@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import { Badge } from "@/components/ui/badge";
 import { AspectRatio } from "@/components/ui/aspect-ratio";
 import type { Course, Category } from "@/data/mockCourses";
 
@@ -7,53 +6,58 @@ interface CourseCardProps {
   course: Course;
 }
 
-const categoryColors: Record<Category, string> = {
-  Freelancing: "bg-category-freelancing",
-  "Stock Trading": "bg-category-stocks",
-  Crypto: "bg-category-crypto",
-  Bonds: "bg-category-bonds",
+const categoryStyles: Record<Category, { bg: string; text: string }> = {
+  Freelancing: { bg: "bg-category-freelancing/10", text: "text-category-freelancing" },
+  "Stock Trading": { bg: "bg-category-stocks/10", text: "text-category-stocks" },
+  Crypto: { bg: "bg-category-crypto/10", text: "text-category-crypto" },
+  Bonds: { bg: "bg-category-bonds/10", text: "text-category-bonds" },
 };
 
 const CourseCard = ({ course }: CourseCardProps) => {
+  const categoryStyle = categoryStyles[course.category];
+
   return (
     <Link to={`/course/${course.id}`} className="group block">
-      <div className="relative overflow-hidden rounded-xl bg-card border border-border shadow-lg transition-all duration-300 hover:shadow-2xl hover:-translate-y-2 hover:border-primary/50">
-        {/* Thumbnail */}
+      <div className="glass-card glass-card-hover relative overflow-hidden">
+        {/* Image with gradient fade */}
         <div className="relative overflow-hidden">
           <AspectRatio ratio={16 / 9}>
+            <div className="absolute inset-0 bg-gradient-to-t from-card via-transparent to-transparent z-10" />
             <img
               src={course.thumbnail_url}
               alt={course.title}
-              className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
             />
           </AspectRatio>
           {/* Category Badge */}
-          <Badge 
-            className={`absolute top-3 right-3 ${categoryColors[course.category]} text-white border-0`}
-          >
+          <div className={`absolute top-4 left-4 z-20 px-3 py-1 rounded-full text-xs font-semibold ${categoryStyle.bg} ${categoryStyle.text} backdrop-blur-sm border border-current/20`}>
             {course.category}
-          </Badge>
+          </div>
         </div>
 
         {/* Content */}
         <div className="p-5">
-          <h3 className="text-xl font-bold text-foreground mb-2 line-clamp-1 group-hover:text-primary transition-colors">
+          <h3 className="text-lg font-bold text-foreground mb-2 line-clamp-1 tracking-tight group-hover:text-accent transition-colors">
             {course.title}
           </h3>
-          <p className="text-muted-foreground text-sm line-clamp-2 mb-4">
+          <p className="text-muted-foreground text-sm line-clamp-2 mb-4 font-medium">
             {course.description}
           </p>
           
           {/* Footer */}
-          <div className="flex items-center justify-between">
-            <span className="text-sm text-muted-foreground">
-              by {course.instructor}
+          <div className="flex items-center justify-between pt-4 border-t border-border">
+            <span className="text-xs text-muted-foreground font-medium">
+              {course.instructor}
             </span>
-            <span className={`font-bold ${course.price ? 'text-foreground' : 'text-category-freelancing'}`}>
+            <span className={`text-sm font-bold ${course.price ? 'text-foreground' : 'text-category-freelancing'}`}>
               {course.price ? `$${course.price}` : 'Free'}
             </span>
           </div>
         </div>
+
+        {/* Subtle inner glow on hover */}
+        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" 
+             style={{ boxShadow: 'inset 0 0 60px -20px rgba(255,255,255,0.1)' }} />
       </div>
     </Link>
   );

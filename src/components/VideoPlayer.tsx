@@ -6,7 +6,6 @@ interface VideoPlayerProps {
 }
 
 const VideoPlayer = ({ videoUrl, title }: VideoPlayerProps) => {
-  // Convert YouTube watch URLs to embed URLs if needed
   const getEmbedUrl = (url: string): string => {
     if (url.includes("youtube.com/watch")) {
       const videoId = url.split("v=")[1]?.split("&")[0];
@@ -20,7 +19,7 @@ const VideoPlayer = ({ videoUrl, title }: VideoPlayerProps) => {
   };
 
   return (
-    <div className="w-full overflow-hidden rounded-xl bg-card border border-border shadow-lg">
+    <div className="w-full overflow-hidden glass-card">
       <AspectRatio ratio={16 / 9}>
         <iframe
           src={getEmbedUrl(videoUrl)}
