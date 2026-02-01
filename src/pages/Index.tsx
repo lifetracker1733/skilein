@@ -20,14 +20,14 @@ const Index = () => {
     return mockCourses.filter(course => course.category === selectedCategory);
   }, [selectedCategory]);
 
-  // Split courses for two marquee rows (specified order)
-  // Row 1: Stock, Dropshipping, Vibe Coding, Web Design
-  // Row 2: Crypto, Content, Ads
+  // Split courses for two marquee rows
+  // Row 1: Dropshipping, Vibe Coding, Prompt, Crypto
+  // Row 2: Drop Coursing, Ads, AI Content, Prompt AI
   const row1Courses = mockCourses.filter(c => 
-    ["stock", "dropshipping", "vibecoding", "webdesign"].includes(c.id)
+    ["dropshipping", "vibecoding", "prompt", "crypto"].includes(c.id)
   );
   const row2Courses = mockCourses.filter(c => 
-    ["crypto", "content", "ads"].includes(c.id)
+    ["dropcoursing", "ads", "aicontent", "prompt_ai"].includes(c.id)
   );
 
   return (
