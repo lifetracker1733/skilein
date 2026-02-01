@@ -22,7 +22,8 @@ const YouTubePlayer = ({ videoId, title = "Video Player" }: YouTubePlayerProps) 
   const [isLoading, setIsLoading] = useState(true);
   const iframeRef = useRef<HTMLIFrameElement>(null);
 
-  const embedUrl = `https://www.youtube.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0&controls=1&autoplay=0`;
+  // Use youtube-nocookie.com for privacy-enhanced mode with better embed compatibility
+  const embedUrl = `https://www.youtube-nocookie.com/embed/${videoId}?modestbranding=1&rel=0&showinfo=0&controls=1&autoplay=0&enablejsapi=1`;
   const watchUrl = `https://www.youtube.com/watch?v=${videoId}`;
 
   useEffect(() => {
