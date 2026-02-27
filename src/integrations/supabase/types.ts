@@ -14,7 +14,60 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      trade_journal_entries: {
+        Row: {
+          adrenaline_level: number | null
+          created_at: string
+          daily_pct_change: number | null
+          daily_risk: number | null
+          emotional_state: string | null
+          entry_date: string
+          id: string
+          loss_trades: number | null
+          notes: string | null
+          num_trades: number | null
+          profit_loss: number | null
+          target_profit: number | null
+          trade_amount: number | null
+          updated_at: string
+          win_trades: number | null
+        }
+        Insert: {
+          adrenaline_level?: number | null
+          created_at?: string
+          daily_pct_change?: number | null
+          daily_risk?: number | null
+          emotional_state?: string | null
+          entry_date: string
+          id?: string
+          loss_trades?: number | null
+          notes?: string | null
+          num_trades?: number | null
+          profit_loss?: number | null
+          target_profit?: number | null
+          trade_amount?: number | null
+          updated_at?: string
+          win_trades?: number | null
+        }
+        Update: {
+          adrenaline_level?: number | null
+          created_at?: string
+          daily_pct_change?: number | null
+          daily_risk?: number | null
+          emotional_state?: string | null
+          entry_date?: string
+          id?: string
+          loss_trades?: number | null
+          notes?: string | null
+          num_trades?: number | null
+          profit_loss?: number | null
+          target_profit?: number | null
+          trade_amount?: number | null
+          updated_at?: string
+          win_trades?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
