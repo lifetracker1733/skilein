@@ -41,6 +41,12 @@ const Navbar = () => {
           >
             Journal
           </Link>
+          <Link 
+            to="/portfolio" 
+            className="px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors rounded-full hover:bg-white/10"
+          >
+            Portfolio
+          </Link>
         </div>
 
         {/* CTA Button - Pure White Pill */}
