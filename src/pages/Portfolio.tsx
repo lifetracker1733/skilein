@@ -63,9 +63,9 @@ const articles = [
   { cat: "AI Guides", title: "Claude vs ChatGPT — Which Wins in 2026?", read: "6 min" },
 ];
 
-const fadeUp = {
+const fadeUp: any = {
   hidden: { opacity: 0, y: 30 },
-  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.06, ease: [0.22, 1, 0.36, 1] } }),
+  show: (i = 0) => ({ opacity: 1, y: 0, transition: { duration: 0.6, delay: i * 0.06, ease: "easeOut" } }),
 };
 
 const Portfolio = () => {
