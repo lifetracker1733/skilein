@@ -95,8 +95,18 @@ export default {
         "float": "float 6s ease-in-out infinite",
       },
       fontFamily: {
-        sans: ["Plus Jakarta Sans", "Inter", "system-ui", "sans-serif"],
+        sans: ["Inter", "system-ui", "sans-serif"],
+        display: ["Montserrat", "Inter", "system-ui", "sans-serif"],
       },
+      colors: {
+        skile: {
+          blue: "#00AEEF",
+          "blue-dark": "#0090C7",
+          "blue-soft": "#E6F7FE",
+          ink: "#0B0B0B",
+          paper: "#F5F5F5",
+        },
+      } as any,
     },
   },
   plugins: [require("tailwindcss-animate")],
